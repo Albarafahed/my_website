@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البراء فهد | أرشيف المشاريع البرمجية</title>
+    <meta property="og:title" content="البراء فهد | Software Developer">
+<meta property="og:description" content="Portfolio يعرض مشاريع البرمجة في Flutter, C#, و PHP">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(59, 130, 246, 0.5);
+            border-radius: 10px;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: #050810;
+            color: #e2e8f0;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa, #2dd4bf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-hover {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 30px -15px rgba(59, 130, 246, 0.3);
+        }
+
+        .project-list li {
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            padding-bottom: 4px;
+        }
+
+        .project-list a {
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-list a:hover {
+            padding-right: 8px;
+            color: white;
+        }
+
+        .badge {
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-frontend {
+            background: rgba(45, 212, 191, 0.1);
+            color: #2dd4bf;
+            border: 1px solid rgba(45, 212, 191, 0.2);
+        }
+
+        .badge-fullstack {
+            background: rgba(96, 165, 250, 0.1);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="fixed w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold gradient-text tracking-tighter italic underline decoration-blue-500">
+                ALBARA.DEV
+            </div>
+
+            <div class="hidden md:flex gap-8 text-sm font-bold">
+                <a href="#home" class="hover:text-blue-400 transition">الرئيسية</a>
+                <a href="#projects" class="hover:text-blue-400 transition">المشاريع</a>
+                <a href="#tech" class="hover:text-blue-400 transition">التقنيات</a>
+                <a href="#work" class="hover:text-blue-400 transition">العمل</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden glass border-t border-white/10 flex flex-col gap-4 p-6 text-center font-bold">
+            <a href="#home" class="hover:text-blue-400 transition py-2 border-b border-white/5">الرئيسية</a>
+            <a href="#projects" class="hover:text-blue-400 transition py-2 border-b border-white/5">المشاريع</a>
+            <a href="#tech" class="hover:text-blue-400 transition py-2 border-b border-white/5">التقنيات</a>
+            <a href="#work" class="hover:text-blue-400 transition py-2">العمل</a>
+        </div>
+    </nav>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            // تبديل ظهور القائمة
+            mobileMenu.classList.toggle('hidden');
+
+            // تغيير أيقونة الزر من (قائمة) إلى (X) عند الفتح
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // إغلاق القائمة عند الضغط على أي رابط
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = menuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+    </script>
+
+
+    <section id="home"
+        class="pt-32 pb-16 px-6 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent">
+        <div class="max-w-4xl mx-auto text-center">
+
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-green-500/20 bg-green-500/5 text-green-400 text-xs font-semibold tracking-wide">
+                <span class="relative flex h-2 w-2">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                متاح للفرص البرمجية | Open to Work
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-white tracking-tight">
+                البراء فهد <br>
+                <span class="gradient-text">Software Developer</span>
+            </h1>
+
+            <p class="text-gray-400 text-base md:text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
+                متخصص في بناء الحلول الرقمية المتكاملة، أمتلك أساساً هندسياً متيناً مع خبرة عملية في حل
+                <span class="text-blue-400 font-bold"> +500 تحدي برمجي </span>.
+                أركز على تحويل الأفكار المعقدة إلى تطبيقات بسيطة وفعالة في بيئات
+                <span class="text-gray-200">Flutter, C#, و PHP</span>.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#projects"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold text-base shadow-lg shadow-blue-600/20 transition-all transform hover:-translate-y-0.5">
+                    تصفح أعمالي
+                </a>
+
+                <a href="https://github.com/Albarafahed" target="_blank"
+                    class="glass hover:bg-white/10 px-8 py-3 rounded-xl font-bold text-base transition-all border border-white/10 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <i class="fab fa-github text-lg"></i> GitHub
+                </a>
+            </div>
+
+            <div class="flex justify-center gap-8 md:gap-16 mt-16 border-t border-white/5 pt-8">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-white tracking-tight">500+</div>
+                    <div class="text-gray-500 text-xs mt-1 uppercase tracking-widest font-medium">مسألة محولة</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-white tracking-tight">25+</div>
+                    <div class="text-gray-500 text-xs mt-1 uppercase tracking-widest font-medium">مشروع منجز</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-white tracking-tight">Full</div>
+                    <div class="text-gray-500 text-xs mt-1 uppercase tracking-widest font-medium">Stack Desktop Skill
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group">
+                <div
+                    class="absolute -right-4 -top-4 text-8xl text-white/5 group-hover:text-blue-500/10 transition-colors italic font-bold">
+                    C++</div>
+                <div class="flex items-center gap-4 mb-6">
+                    <i class="fas fa-brain text-4xl text-blue-500"></i>
+                    <h3 class="text-2xl font-bold text-white">C++ & Logic</h3>
+                </div>
+                <ul class="project-list text-blue-400 font-medium">
+                    <li><a href="https://github.com/Albarafahed/Course-4-Abu-Hadhoud-C-problems-" target="_blank"><i
+                                class="fas fa-terminal"></i> Course 4: Problem Solving</a></li>
+                    <li><a href="https://github.com/Albarafahed/Course-5-Abu-Hadhoud/tree/master/Probelm"
+                            target="_blank"><i class="fas fa-code"></i> Course 5: Problems</a></li>
+                    <li><a href="https://github.com/Albarafahed/Course-5-Abu-Hadhoud/tree/master/Project"
+                            target="_blank"><i class="fas fa-project-diagram"></i> Course 5: Projects</a></li>
+                    <li><a href="https://github.com/Albarafahed/Course-7-Abu-Hadhoud-C-problems-" target="_blank"><i
+                                class="fas fa-terminal"></i> Course 7: Adv Problems</a></li>
+                    <li><a href="https://github.com/Albarafahed/Course-8-Abu-Hadhoud-C-" target="_blank"><i
+                                class="fas fa-terminal"></i> Course 8: Problems</a></li>
+                    <li><a href="https://github.com/Albarafahed/Bank-Functional" target="_blank"><i
+                                class="fas fa-university"></i> Bank Functional</a></li>
+                    <li><a href="https://github.com/Albarafahed/ATM" target="_blank"><i class="fas fa-university"></i>
+                            ATM Project</a></li>
+                    <li><a href="https://github.com/Albarafahed/Bank-Extention-Fuctional" target="_blank"><i
+                                class="fas fa-university"></i> Bank Extension</a></li>
+                    <li><a href="https://github.com/Albarafahed/Bank-Project-c-OOB" target="_blank"><i
+                                class="fas fa-cube"></i> Bank OOP</a></li>
+                    <li><a href="https://github.com/Albarafahed/Course-13-Abu-Hadhoud-C-project-by-Data-Structurs-/blob/master/Undo%20and%20Redo/FileName.cpp"
+                            target="_blank"><i class="fas fa-history"></i> Undo & Redo (Data Structures)</a></li>
+                </ul>
+            </div>
+
+            <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group">
+                <div
+                    class="absolute -right-4 -top-4 text-8xl text-white/5 group-hover:text-red-500/10 transition-colors italic font-bold">
+                    C#</div>
+                <div class="flex items-center gap-4 mb-6">
+                    <i class="fas fa-desktop text-4xl text-red-500"></i>
+                    <h3 class="text-2xl font-bold text-white">Desktop (C#)</h3>
+                </div>
+
+                <div class="mb-4">
+                    <span class="badge badge-frontend mb-2 inline-block">Front End Projects</span>
+                    <ul class="project-list text-red-400/80 font-medium">
+                        <li><a href="https://github.com/Albarafahed/Calculator-C-Windows-Form" target="_blank"><i
+                                    class="fas fa-calculator"></i> Calculator</a></li>
+                        <li><a href="https://github.com/Albarafahed/Note-Book-C-Windows-Form" target="_blank"><i
+                                    class="fas fa-sticky-note"></i> Note Book</a></li>
+                        <li><a href="https://github.com/Albarafahed/Pizza-C-Windows-Form" target="_blank"><i
+                                    class="fas fa-pizza-slice"></i> Pizza </a></li>
+                        <li><a href="https://github.com/Albarafahed/XO-Game-C-Windwos-Form" target="_blank"><i
+                                    class="fas fa-times"></i> X-O Game</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <span class="badge badge-fullstack mb-2 inline-block">Full Stack / Architecture</span>
+                    <ul class="project-list text-red-400 font-bold">
+                        <li><a href="https://github.com/Albarafahed/Snake-Windwos-Form-C-" target="_blank"><i
+                                    class="fas fa-dragon"></i> Snake </a></li>
+                        <li><a href="https://github.com/Albarafahed/Inventory_Management_System-Windows-Form-C-"
+                                target="_blank"><i class="fas fa-boxes"></i> Inventory System</a></li>
+                        <li><a href="https://github.com/Albarafahed/Hospital-Management-System-Windwos-Fomr-C-"
+                                target="_blank"><i class="fas fa-hospital"></i> Hospital Management</a></li>
+                        <li><a href="https://github.com/Albarafahed/Hospital-Management-System-Windwos-Fomr-C-"
+                                target="_blank"><i class="fas fa-plus-square"></i> HealthCare Plus</a></li>
+                        <li><a href="https://github.com/Albarafahed/3-Tire-Architecture-WinForm-C-" target="_blank"><i
+                                    class="fas fa-layer-group"></i> 3-Tier Architecture</a></li>
+                        <li><a href="https://github.com/Albarafahed/3-Tire-Architecture-WinForm-C-" target="_blank"><i
+                                    class="fas fa-layer-group"></i> Contact</a></li>
+                        <li><a href="https://github.com/Albarafahed/Contact" target="_blank"><i
+                                    class="fas fa-id-card"></i> DVLD (Professional)</a></li>
+                        <li><a href="https://github.com/Albarafahed/RealEstateSolution-Windwos-Form-C-"
+                                target="_blank"><i class="fas fa-house-user"></i> Real Estate Solution</a></li>
+                          <li class="mt-4 flex items-center gap-2 opacity-50"><i class="fas fa-spinner fa-spin"></i> قيد
+                        التطوير: مشاريع سطح المكتب جديدة</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group">
+                <div
+                    class="absolute -right-4 -top-4 text-8xl text-white/5 group-hover:text-cyan-500/10 transition-colors italic font-bold">
+                    APP</div>
+                <div class="flex items-center gap-4 mb-6">
+                    <i class="fas fa-mobile-alt text-4xl text-cyan-400"></i>
+                    <h3 class="text-2xl font-bold text-white">Flutter Dev</h3>
+                </div>
+                <span class="badge badge-frontend mb-4 inline-block">Front End & UI</span>
+                <ul class="project-list text-cyan-400 font-medium">
+                    <li><a href="https://github.com/Albarafahed/BMI-Calculator-Flutter" target="_blank"><i
+                                class="fas fa-weight"></i> BMI Calculator</a></li>
+                    <li><a href="https://github.com/Albarafahed/Memory-Math-Game-Flutter" target="_blank"><i
+                                class="fas fa-head-side-virus"></i> Memory Math Game</a></li>
+                    <li><a href="https://github.com/Albarafahed/XO-Game-Flutter" target="_blank"><i
+                                class="fas fa-gamepad"></i> X-O Flutter Game</a></li>
+                    <li><a href="https://github.com/Albarafahed/Rock-Paper-Scissors-Game-Flutter" target="_blank"><i
+                                class="fas fa-hand-rock"></i> Rock Paper Scissors</a></li>
+                    <li><a href="https://github.com/Albarafahed/Modern-UI-Flutter" target="_blank"><i
+                                class="fas fa-palette"></i>Modern UI</a></li>
+                    <li><a href="https://github.com/Albarafahed/Smart-Home-UI-Flutter-" target="_blank"><i
+                                class="fas fa-home"></i>Smart Home UI</a></li>
+                      <li><a href="https://github.com/Albarafahed/ImageLab" target="_blank"><i
+                                class="fas fa-home"></i>ImageLab</a></li>
+                    <li class="mt-4 flex items-center gap-2 opacity-50"><i class="fas fa-spinner fa-spin"></i> قيد
+                        التطوير: مشاريع فلاتر جديدة</li>
+                    <span class="badge badge-frontend mb-2 inline-block">Full Stack Projects</span>
+                    <li><a href="https://github.com/Albarafahed/Event-Manger-Flutter" target="_blank"><i
+                                class="fas fa-calendar-check"></i> Event Manager</a></li>
+                </ul>
+            </div>
+
+            <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group lg:col-span-2">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-globe text-4xl text-green-500"></i>
+                        <h3 class="text-2xl font-bold text-white">Web Development</h3>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <span class="badge badge-frontend mb-3 inline-block">Front End (HTML/CSS)</span>
+                        <ul class="project-list text-green-400/80 font-medium">
+                            <li><a href="https://github.com/Albarafahed/Project-by-html-and-css-" target="_blank"><i
+                                        class="fas fa-laptop-code"></i> Project of Learn</a></li>
+                            <li><a href="https://github.com/Albarafahed/Libaray-by-html-and-css-" target="_blank"><i
+                                        class="fas fa-book-reader"></i> Web Library UI</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span class="badge badge-fullstack mb-3 inline-block">Full Stack (PHP/MySQL)</span>
+                        <ul class="project-list text-green-400 font-bold">
+                            <li><a href="https://github.com/Albarafahed/online-book-store-By-php-and-my-sql"
+                                    target="_blank"><i class="fas fa-shopping-cart"></i> Online Book Store</a></li>
+                            <li><a href="https://github.com/Albarafahed/Employee-Task-Management-System-using-PHP-and-MySQL-"
+                                    target="_blank"><i class="fas fa-tasks"></i> Task Management</a></li>
+                            <li><a href="https://github.com/Albarafahed/project-php-and-my-sql-" target="_blank"><i
+                                        class="fas fa-database"></i> Library Full Project</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group">
+                <i class="fab fa-python text-4xl text-yellow-400 mb-6"></i>
+                <h3 class="text-2xl font-bold text-white mb-4">Python Scripts</h3>
+                <ul class="project-list text-yellow-400 font-medium">
+                    <li><a href="https://github.com/Albarafahed/Medical-Center-Paython-" target="_blank"><i
+                                class="fas fa-notes-medical"></i> Medical Center App</a></li>
+                    <li><a href="https://github.com/Albarafahed/Academic-Advisor-AI-Paython" target="_blank"><i
+                                class="fas fa-user-graduate"></i> Academic Advisor AI</li>
+                </ul>
+            </div>
+
+        </div>
+
+    <div class="container mx-auto px-4 py-10 max-w-7xl">
+
+        <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group border-t-2 border-blue-500/30">
+            <div
+                class="absolute -right-4 -top-4 text-8xl text-white/5 group-hover:text-blue-400/10 transition-colors italic font-bold">
+                SQL</div>
+
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 relative z-10">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-blue-500/10 rounded-2xl">
+                        <i class="fas fa-database text-4xl text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white uppercase tracking-wider">SQL Database (ٍSql Server)</h3>
+                        <p class="text-gray-400 text-sm italic">Concepts, Practices & 50+ Real-world Problems</p>
+                    </div>
+                </div>
+                <a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/"
+                    target="_blank"
+                    class="mt-4 md:mt-0 px-5 py-2 bg-blue-500/20 hover:bg-blue-500/40 text-blue-300 rounded-xl text-sm font-bold transition-all border border-blue-500/30">
+                    <i class="fab fa-github ml-1"></i> المستودع الكامل
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 relative z-10">
+                <div class="space-y-4">
+                    <span class="badge badge-fullstack inline-block italic text-[10px]">1. Projects & Diagrams</span>
+                    <ul class="project-list text-blue-400/90 text-sm">
+                        <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_1_projects/_1_1_relational_diagrams/_1_1_1_management_system/Clinic.mmd"
+                                target="_blank"><i class="fas fa-hospital-alt"></i> Clinic System</a></li>
+                        <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_1_projects/_1_1_relational_diagrams/_1_1_1_management_system/Library.mmd"
+                                target="_blank"><i class="fas fa-book"></i> Library System</a></li>
+                        <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_1_projects/_1_1_relational_diagrams/_1_1_1_management_system/KarateClub.mmd"
+                                target="_blank"><i class="fas fa-user-ninja"></i> Karate Club</a></li>
+                        <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_1_projects/_1_1_relational_diagrams/_1_1_1_management_system/CarRental.mmd"
+                                target="_blank"><i class="fas fa-car-side"></i> Car Rental</a></li>
+                        <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_1_projects/_1_1_relational_diagrams/_1_1_1_management_system/OnlineStore.mmd"
+                                target="_blank"><i class="fas fa-store"></i> Online Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <span class="badge badge-frontend inline-block italic text-[10px]">2. Concepts</span>
+                    <ul class="project-list text-teal-400/90 text-sm">
+                        <li><i class="fas fa-id-badge text-xs"></i> What is GUID & How to use?</li>
+                        <li><i class="fas fa-file-import text-xs"></i> Buy and Import Data</li>
+                        <li><i class="fas fa-columns text-xs"></i> Extract Data to Separate Table</li>
+                    </ul>
+                    <div class="p-3 rounded-xl bg-white/5 border border-white/5 mt-2">
+                        <p class="text-[10px] text-gray-500 leading-relaxed uppercase tracking-tighter italic">Essential
+                            practices for database administration and design.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <span
+                        class="badge bg-purple-500/10 text-purple-400 border border-purple-500/20 inline-block italic text-[10px]">3.
+                        Problems (54 Challenges)</span>
+                    <div class="max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                        <ul class="project-list text-purple-300/80 text-[11px] space-y-2">
+                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_1_create_master_view"
+                                    target="_blank"><i class="fas fa-check-circle"></i> 01: Master View Creation</a>
+                            </li>
+                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_7_get_number_of_vehicles_made_between_1950_and_2000_per_make_and_add_total_vehicles_column_beside_it_then_calculate_it_is_percentage"
+                                    target="_blank"><i class="fas fa-check-circle"></i> 07: Vehicles Percentage</a></li>
+                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_13_get_all_makes_and_count_of_vehicles_that_manufactures_more_than_20k_vehicles"
+                                    target="_blank"><i class="fas fa-check-circle"></i> 13: 20K+ Vehicles Counts</a>
+                            </li>
+                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_31_get_all_vehicle_display_name_and_year_and_add_extra_column_to_calculate_the_age_of_the_car_then_sort_the_results_by_age_desc"
+                                    target="_blank"><i class="fas fa-check-circle"></i> 31: Dynamic Age Calc</a></li>
+                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_42_get_a_table_of_unique_engine_cc_and_calculate_tax_per_engine_cc"
+                                    target="_blank"><i class="fas fa-check-circle"></i> 42: Tax per Engine CC</a></li>
+                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_51_self_referential_queries"
+                                    target="_blank"><i class="fas fa-sync-alt"></i> 51-54: Self Referential Join</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <p
+                        class="text-[10px] text-purple-400/60 text-center font-bold tracking-widest uppercase mt-2 italic">
+                        +
+                        Full 54 solved problems</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <section id="tech" class="py-20 px-6 max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-10 italic">🛠 Technologies & Skills</h2>
+        <div class="flex flex-wrap justify-center gap-4 text-sm font-bold">
+            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">C++</span>
+            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">Sql</span>
+            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">Flutter / Dart</span>
+            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">C# Windows Forms / Sql Server</span>
+            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">PHP / MySQL</span>
+            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">Python</span>
+            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">Git & GitHub</span>
+            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">HTML / CSS</span>
+        </div>
+    </section>
+
+
+    <section id="hiring" class="py-12 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 italic text-white" id="work"><i
+                    class="fas fa-briefcase ml-3 text-blue-500"></i>أنا
+                أتطلع حالياً لفرص عمل في المجالات التالية:</h2>
+            <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="job-card p-6 rounded-2xl glass">
+                <h3 class="text-xl font-bold text-blue-400 mb-3">Flutter Developer</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">بناء تطبيقات موبايل احترافية (Android & iOS) مع التركيز
+                    على واجهات مستخدم سلسة وأداء عالي.</p>
+            </div>
+            <div class="job-card p-6 rounded-2xl glass border-r-cyan-500">
+                <h3 class="text-xl font-bold text-cyan-400 mb-3">Backend Developer (PHP)</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">تطوير أنظمة ويب قوية وإدارة قواعد البيانات MySQL
+                    باستخدام PHP مع مراعاة الأمان والكفاءة.</p>
+            </div>
+            <div class="job-card p-6 rounded-2xl glass border-r-red-500">
+                <h3 class="text-xl font-bold text-red-500 mb-3">C# Desktop Developer</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">تصميم وتطوير برمجيات سطح المكتب (Management Systems)
+                    باستخدام WinForms وهيكلية 3-Tier.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="py-20 px-6 text-center border-t border-white/5">
+        <div class="max-w-2xl mx-auto glass p-10 rounded-3xl">
+            <h2 class="text-2xl font-bold mb-6 italic">🎯 الهدف</h2>
+            <p class="text-gray-400 mb-8 leading-relaxed">
+                تنظيم جميع المشاريع وتوثيق التقدم، واستخدام هذا السجل كـ Portfolio برمجي متكامل يعكس الخبرة في مختلف
+                التقنيات.
+            </p>
+            <div class="flex justify-center gap-8">
+                <a href="https://github.com/Albarafahed" class="text-gray-400 hover:text-white transition text-3xl"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/albara-fahed-alharissy-689888299"
+                    class="text-gray-400 hover:text-blue-500 transition text-3xl"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="mt-10 text-xs text-gray-600 uppercase tracking-widest">Albara Fahed | 2026</p>
+            <p class="mt-2 text-yellow-500/50 text-[10px]">⭐ Support the project on GitHub</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+
+
+
+
