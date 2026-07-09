@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+
+/* ===============================
+   Global
+================================== */
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: #050810;
+    color: #e2e8f0;
+    scroll-behavior: smooth;
+}
+
+/* ===============================
+   Components
+================================== */
+
+.glass {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-hover {
+    transition: all .4s ease;
+    border: 1px solid rgba(255, 255, 255, .05);
+}
+
+.card-hover:hover {
+    transform: translateY(-10px);
+    border-color: #3b82f6;
+    box-shadow: 0 15px 40px -20px rgba(59, 130, 246, .5);
+}
+
+/* ===============================
+   Text
+================================== */
+
+.gradient-text {
+    background: linear-gradient(135deg, #60a5fa, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

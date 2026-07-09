@@ -1,531 +1,1364 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البراء فهد | أرشيف المشاريع البرمجية</title>
-    <meta property="og:title" content="البراء فهد | Software Developer">
-<meta property="og:description" content="Portfolio يعرض مشاريع البرمجة في Flutter, C#, و PHP">
+
+    <title>Albara Fahed | C# .NET Developer</title>
+
+    <meta name="description"
+        content="Albara Fahed - C# .NET Developer Portfolio. Desktop applications, SQL Server systems, ASP.NET Core APIs, and software architecture projects.">
+
+    <meta property="og:title" content="Albara Fahed | C# .NET Developer">
+    <meta property="og:description"
+        content="Portfolio showcasing C# .NET applications, SQL Server projects, 3-Tier Architecture, and backend development.">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
 
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet">
 
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-        }
+  <link rel="stylesheet" href="css/style.css">
 
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(59, 130, 246, 0.5);
-            border-radius: 10px;
-        }
-
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background: #050810;
-            color: #e2e8f0;
-            scroll-behavior: smooth;
-        }
-
-        .glass {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #60a5fa, #2dd4bf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .card-hover {
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            height: 100%;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-10px);
-            border-color: #3b82f6;
-            box-shadow: 0 10px 30px -15px rgba(59, 130, 246, 0.3);
-        }
-
-        .project-list li {
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            padding-bottom: 4px;
-        }
-
-        .project-list a {
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .project-list a:hover {
-            padding-right: 8px;
-            color: white;
-        }
-
-        .badge {
-            font-size: 0.65rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .badge-frontend {
-            background: rgba(45, 212, 191, 0.1);
-            color: #2dd4bf;
-            border: 1px solid rgba(45, 212, 191, 0.2);
-        }
-
-        .badge-fullstack {
-            background: rgba(96, 165, 250, 0.1);
-            color: #60a5fa;
-            border: 1px solid rgba(96, 165, 250, 0.2);
-        }
-    </style>
 </head>
+
 
 <body>
 
 
-   <nav class="fixed w-full z-50 glass">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl md:text-2xl font-extrabold gradient-text tracking-tighter italic underline decoration-blue-500">
+<!-- Navbar --><!-- ================= NAVBAR ================= -->
+
+<nav id="navbar"
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+
+    <div
+        class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+        <!-- Logo -->
+
+        <a href="index.html" class="group">
+
+            <h1 class="text-2xl font-extrabold tracking-tight gradient-text">
                 ALBARA.DEV
-            </div>
-
-            <div class="hidden md:flex gap-8 text-sm font-bold">
-                <a href="#home" class="hover:text-blue-400 transition">الرئيسية</a>
-                <a href="#projects" class="hover:text-blue-400 transition">المشاريع</a>
-                <a href="#tech" class="hover:text-blue-400 transition">التقنيات</a>
-                <a href="#work" class="hover:text-blue-400 transition">العمل</a>
-            </div>
-
-<button id="menu-btn" class="md:hidden focus:outline-none p-2 flex flex-col gap-1.5 items-center justify-center">
-    <span class="w-8 h-1 bg-white rounded-full transition-all duration-300"></span>
-    <span class="w-8 h-1 bg-white rounded-full transition-all duration-300"></span>
-    <span class="w-8 h-1 bg-white rounded-full transition-all duration-300"></span>
-</button>
-        </div>
-
-        <div id="mobile-menu"
-            class="hidden md:hidden glass border-t border-white/10 flex-col gap-2 p-6 text-center font-bold">
-            <a href="#home" class="hover:text-blue-400 transition py-3 border-b border-white/5">الرئيسية</a>
-            <a href="#projects" class="hover:text-blue-400 transition py-3 border-b border-white/5">المشاريع</a>
-            <a href="#tech" class="hover:text-blue-400 transition py-3 border-b border-white/5">التقنيات</a>
-            <a href="#work" class="hover:text-blue-400 transition py-3">العمل</a>
-        </div>
-    </nav>
-
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const icon = menuBtn.querySelector('i');
-
-        menuBtn.addEventListener('click', () => {
-            // تبديل ظهور القائمة (Hidden لإخفائها و Flex لإظهارها بشكل عمودي)
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-
-            // تبديل الأيقونة بين (Bars) و (Times/X)
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.classList.replace('fa-times', 'fa-bars');
-            } else {
-                icon.classList.replace('fa-bars', 'fa-times');
-            }
-        });
-
-        // إغلاق القائمة تلقائياً عند الضغط على أي رابط
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
-                icon.classList.replace('fa-times', 'fa-bars');
-            });
-        });
-    </script>
-
-
-    <section id="home"
-        class="pt-32 pb-16 px-6 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent">
-        <div class="max-w-4xl mx-auto text-center">
-
-            <div
-                class="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-green-500/20 bg-green-500/5 text-green-400 text-xs font-semibold tracking-wide">
-                <span class="relative flex h-2 w-2">
-                    <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                متاح للفرص البرمجية | Open to Work
-            </div>
-
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-white tracking-tight">
-                البراء فهد <br>
-                <span class="gradient-text">Software Developer</span>
             </h1>
 
-            <p class="text-gray-400 text-base md:text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
-                متخصص في بناء الحلول الرقمية المتكاملة، أمتلك أساساً هندسياً متيناً مع خبرة عملية في حل
-                <span class="text-blue-400 font-bold"> +500 تحدي برمجي </span>.
-                أركز على تحويل الأفكار المعقدة إلى تطبيقات بسيطة وفعالة في بيئات
-                <span class="text-gray-200">Flutter, C#, و PHP</span>.
+            <p
+                class="text-[11px] text-gray-400 tracking-[3px] uppercase group-hover:text-blue-400 transition">
+                C# .NET Developer
             </p>
 
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#projects"
-                    class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold text-base shadow-lg shadow-blue-600/20 transition-all transform hover:-translate-y-0.5">
-                    تصفح أعمالي
-                </a>
+        </a>
 
-                <a href="https://github.com/Albarafahed" target="_blank"
-                    class="glass hover:bg-white/10 px-8 py-3 rounded-xl font-bold text-base transition-all border border-white/10 flex items-center gap-2 transform hover:-translate-y-0.5">
-                    <i class="fab fa-github text-lg"></i> GitHub
-                </a>
-            </div>
+        <!-- Desktop Menu -->
 
-            <div class="flex justify-center gap-8 md:gap-16 mt-16 border-t border-white/5 pt-8">
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-white tracking-tight">500+</div>
-                    <div class="text-gray-500 text-xs mt-1 uppercase tracking-widest font-medium">مسألة محولة</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-white tracking-tight">25+</div>
-                    <div class="text-gray-500 text-xs mt-1 uppercase tracking-widest font-medium">مشروع منجز</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-white tracking-tight">Full</div>
-                    <div class="text-gray-500 text-xs mt-1 uppercase tracking-widest font-medium">Stack Desktop Skill
-                    </div>
-                </div>
-            </div>
+        <div class="hidden lg:flex items-center gap-2 font-semibold">
 
-        </div>
-    </section>
+            <a href="index.html"
+                class="px-4 py-2 rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-600/20">
 
-    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                Home
+            </a>
 
-            <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group">
-                <div
-                    class="absolute -right-4 -top-4 text-8xl text-white/5 group-hover:text-blue-500/10 transition-colors italic font-bold">
-                    C++</div>
-                <div class="flex items-center gap-4 mb-6">
-                    <i class="fas fa-brain text-4xl text-blue-500"></i>
-                    <h3 class="text-2xl font-bold text-white">C++ & Logic</h3>
-                </div>
-                <ul class="project-list text-blue-400 font-medium">
-                    <li><a href="https://github.com/Albarafahed/Course-4-Abu-Hadhoud-C-problems-" target="_blank"><i
-                                class="fas fa-terminal"></i> Course 4: Problem Solving</a></li>
-                    <li><a href="https://github.com/Albarafahed/Course-5-Abu-Hadhoud/tree/master/Probelm"
-                            target="_blank"><i class="fas fa-code"></i> Course 5: Problems</a></li>
-                    <li><a href="https://github.com/Albarafahed/Course-5-Abu-Hadhoud/tree/master/Project"
-                            target="_blank"><i class="fas fa-project-diagram"></i> Course 5: Projects</a></li>
-                    <li><a href="https://github.com/Albarafahed/Course-7-Abu-Hadhoud-C-problems-" target="_blank"><i
-                                class="fas fa-terminal"></i> Course 7: Adv Problems</a></li>
-                    <li><a href="https://github.com/Albarafahed/Course-8-Abu-Hadhoud-C-" target="_blank"><i
-                                class="fas fa-terminal"></i> Course 8: Problems</a></li>
-                    <li><a href="https://github.com/Albarafahed/Bank-Functional" target="_blank"><i
-                                class="fas fa-university"></i> Bank Functional</a></li>
-                    <li><a href="https://github.com/Albarafahed/ATM" target="_blank"><i class="fas fa-university"></i>
-                            ATM Project</a></li>
-                    <li><a href="https://github.com/Albarafahed/Bank-Extention-Fuctional" target="_blank"><i
-                                class="fas fa-university"></i> Bank Extension</a></li>
-                    <li><a href="https://github.com/Albarafahed/Bank-Project-c-OOB" target="_blank"><i
-                                class="fas fa-cube"></i> Bank OOP</a></li>
-                    <li><a href="https://github.com/Albarafahed/Course-13-Abu-Hadhoud-C-project-by-Data-Structurs-/blob/master/Undo%20and%20Redo/FileName.cpp"
-                            target="_blank"><i class="fas fa-history"></i> Undo & Redo (Data Structures)</a></li>
-                </ul>
-            </div>
+            <a href="#about"
+                class="px-4 py-2 rounded-xl transition hover:bg-blue-500/10 hover:text-blue-400">
+                About
+            </a>
 
-            <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group">
-                <div
-                    class="absolute -right-4 -top-4 text-8xl text-white/5 group-hover:text-red-500/10 transition-colors italic font-bold">
-                    C#</div>
-                <div class="flex items-center gap-4 mb-6">
-                    <i class="fas fa-desktop text-4xl text-red-500"></i>
-                    <h3 class="text-2xl font-bold text-white">Desktop (C#)</h3>
-                </div>
+            <a href="dotnet-projects.html"
+                class="px-4 py-2 rounded-xl transition hover:bg-blue-500/10 hover:text-blue-400">
 
-                <div class="mb-4">
-                    <span class="badge badge-frontend mb-2 inline-block">Front End Projects</span>
-                    <ul class="project-list text-red-400/80 font-medium">
-                        <li><a href="https://github.com/Albarafahed/Calculator-C-Windows-Form" target="_blank"><i
-                                    class="fas fa-calculator"></i> Calculator</a></li>
-                        <li><a href="https://github.com/Albarafahed/Note-Book-C-Windows-Form" target="_blank"><i
-                                    class="fas fa-sticky-note"></i> Note Book</a></li>
-                        <li><a href="https://github.com/Albarafahed/Pizza-C-Windows-Form" target="_blank"><i
-                                    class="fas fa-pizza-slice"></i> Pizza </a></li>
-                        <li><a href="https://github.com/Albarafahed/XO-Game-C-Windwos-Form" target="_blank"><i
-                                    class="fas fa-times"></i> X-O Game</a></li>
-                    </ul>
-                </div>
+                .NET Projects
+            </a>
 
-                <div>
-                    <span class="badge badge-fullstack mb-2 inline-block">Full Stack / Architecture</span>
-                    <ul class="project-list text-red-400 font-bold">
-                        <li><a href="https://github.com/Albarafahed/Snake-Windwos-Form-C-" target="_blank"><i
-                                    class="fas fa-dragon"></i> Snake </a></li>
-                        <li><a href="https://github.com/Albarafahed/Inventory_Management_System-Windows-Form-C-"
-                                target="_blank"><i class="fas fa-boxes"></i> Inventory System</a></li>
-                        <li><a href="https://github.com/Albarafahed/Hospital-Management-System-Windwos-Fomr-C-"
-                                target="_blank"><i class="fas fa-hospital"></i> Hospital Management</a></li>
-                        <li><a href="https://github.com/Albarafahed/Hospital-Management-System-Windwos-Fomr-C-"
-                                target="_blank"><i class="fas fa-plus-square"></i> HealthCare Plus</a></li>
-                        <li><a href="https://github.com/Albarafahed/3-Tire-Architecture-WinForm-C-" target="_blank"><i
-                                    class="fas fa-layer-group"></i> 3-Tier Architecture</a></li>
-                        <li><a href="https://github.com/Albarafahed/3-Tire-Architecture-WinForm-C-" target="_blank"><i
-                                    class="fas fa-layer-group"></i> Contact</a></li>
-                        <li><a href="https://github.com/Albarafahed/Contact" target="_blank"><i
-                                    class="fas fa-id-card"></i> DVLD (Professional)</a></li>
-                        <li><a href="https://github.com/Albarafahed/RealEstateSolution-Windwos-Form-C-"
-                                target="_blank"><i class="fas fa-house-user"></i> Real Estate Solution</a></li>
-                          <li class="mt-4 flex items-center gap-2 opacity-50"><i class="fas fa-spinner fa-spin"></i> قيد
-                        التطوير: مشاريع سطح المكتب جديدة</li>
-                    </ul>
-                </div>
-            </div>
+            <a href="other-projects.html"
+                class="px-4 py-2 rounded-xl transition hover:bg-blue-500/10 hover:text-blue-400">
+                Other Projects
+            </a>
 
-            <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group">
-                <div
-                    class="absolute -right-4 -top-4 text-8xl text-white/5 group-hover:text-cyan-500/10 transition-colors italic font-bold">
-                    APP</div>
-                <div class="flex items-center gap-4 mb-6">
-                    <i class="fas fa-mobile-alt text-4xl text-cyan-400"></i>
-                    <h3 class="text-2xl font-bold text-white">Flutter Dev</h3>
-                </div>
-                <span class="badge badge-frontend mb-4 inline-block">Front End & UI</span>
-                <ul class="project-list text-cyan-400 font-medium">
-                    <li><a href="https://github.com/Albarafahed/BMI-Calculator-Flutter" target="_blank"><i
-                                class="fas fa-weight"></i> BMI Calculator</a></li>
-                    <li><a href="https://github.com/Albarafahed/Memory-Math-Game-Flutter" target="_blank"><i
-                                class="fas fa-head-side-virus"></i> Memory Math Game</a></li>
-                    <li><a href="https://github.com/Albarafahed/XO-Game-Flutter" target="_blank"><i
-                                class="fas fa-gamepad"></i> X-O Flutter Game</a></li>
-                    <li><a href="https://github.com/Albarafahed/Rock-Paper-Scissors-Game-Flutter" target="_blank"><i
-                                class="fas fa-hand-rock"></i> Rock Paper Scissors</a></li>
-                    <li><a href="https://github.com/Albarafahed/Modern-UI-Flutter" target="_blank"><i
-                                class="fas fa-palette"></i>Modern UI</a></li>
-                    <li><a href="https://github.com/Albarafahed/Smart-Home-UI-Flutter-" target="_blank"><i
-                                class="fas fa-home"></i>Smart Home UI</a></li>
-                      <li><a href="https://github.com/Albarafahed/ImageLab" target="_blank"><i
-                                class="fas fa-home"></i>ImageLab</a></li>
-                    <li class="mt-4 flex items-center gap-2 opacity-50"><i class="fas fa-spinner fa-spin"></i> قيد
-                        التطوير: مشاريع فلاتر جديدة</li>
-                    <span class="badge badge-frontend mb-2 inline-block">Full Stack Projects</span>
-                    <li><a href="https://github.com/Albarafahed/Event-Manger-Flutter" target="_blank"><i
-                                class="fas fa-calendar-check"></i> Event Manager</a></li>
-                </ul>
-            </div>
+            <a href="#skills"
+                class="px-4 py-2 rounded-xl transition hover:bg-blue-500/10 hover:text-blue-400">
+                Skills
+            </a>
 
-            <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group lg:col-span-2">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-                    <div class="flex items-center gap-4">
-                        <i class="fas fa-globe text-4xl text-green-500"></i>
-                        <h3 class="text-2xl font-bold text-white">Web Development</h3>
-                    </div>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <span class="badge badge-frontend mb-3 inline-block">Front End (HTML/CSS)</span>
-                        <ul class="project-list text-green-400/80 font-medium">
-                            <li><a href="https://github.com/Albarafahed/Project-by-html-and-css-" target="_blank"><i
-                                        class="fas fa-laptop-code"></i> Project of Learn</a></li>
-                            <li><a href="https://github.com/Albarafahed/Libaray-by-html-and-css-" target="_blank"><i
-                                        class="fas fa-book-reader"></i> Web Library UI</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <span class="badge badge-fullstack mb-3 inline-block">Full Stack (PHP/MySQL)</span>
-                        <ul class="project-list text-green-400 font-bold">
-                            <li><a href="https://github.com/Albarafahed/online-book-store-By-php-and-my-sql"
-                                    target="_blank"><i class="fas fa-shopping-cart"></i> Online Book Store</a></li>
-                            <li><a href="https://github.com/Albarafahed/Employee-Task-Management-System-using-PHP-and-MySQL-"
-                                    target="_blank"><i class="fas fa-tasks"></i> Task Management</a></li>
-                            <li><a href="https://github.com/Albarafahed/project-php-and-my-sql-" target="_blank"><i
-                                        class="fas fa-database"></i> Library Full Project</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group">
-                <i class="fab fa-python text-4xl text-yellow-400 mb-6"></i>
-                <h3 class="text-2xl font-bold text-white mb-4">Python Scripts</h3>
-                <ul class="project-list text-yellow-400 font-medium">
-                    <li><a href="https://github.com/Albarafahed/Medical-Center-Paython-" target="_blank"><i
-                                class="fas fa-notes-medical"></i> Medical Center App</a></li>
-                    <li><a href="https://github.com/Albarafahed/Academic-Advisor-AI-Paython" target="_blank"><i
-                                class="fas fa-user-graduate"></i> Academic Advisor AI</li>
-                </ul>
-            </div>
+            <a href="#contact"
+                class="px-4 py-2 rounded-xl transition hover:bg-blue-500/10 hover:text-blue-400">
+                Contact
+            </a>
 
         </div>
 
-    <div class="container mx-auto px-4 py-10 max-w-7xl">
+        <!-- Right Buttons -->
 
-        <div class="card-hover glass rounded-3xl p-8 relative overflow-hidden group border-t-2 border-blue-500/30">
-            <div
-                class="absolute -right-4 -top-4 text-8xl text-white/5 group-hover:text-blue-400/10 transition-colors italic font-bold">
-                SQL</div>
+        <div class="hidden lg:flex items-center gap-3">
 
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 relative z-10">
-                <div class="flex items-center gap-4">
-                    <div class="p-3 bg-blue-500/10 rounded-2xl">
-                        <i class="fas fa-database text-4xl text-blue-400"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white uppercase tracking-wider">SQL Database (ٍSql Server)</h3>
-                        <p class="text-gray-400 text-sm italic">Concepts, Practices & 50+ Real-world Problems</p>
-                    </div>
-                </div>
-                <a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/"
-                    target="_blank"
-                    class="mt-4 md:mt-0 px-5 py-2 bg-blue-500/20 hover:bg-blue-500/40 text-blue-300 rounded-xl text-sm font-bold transition-all border border-blue-500/30">
-                    <i class="fab fa-github ml-1"></i> المستودع الكامل
-                </a>
-            </div>
+            <a href="https://github.com/Albarafahed"
+                target="_blank"
+                class="glass px-5 py-2 rounded-xl hover:border-blue-500 transition">
 
-            <div class="grid md:grid-cols-3 gap-8 relative z-10">
-                <div class="space-y-4">
-                    <span class="badge badge-fullstack inline-block italic text-[10px]">1. Projects & Diagrams</span>
-                    <ul class="project-list text-blue-400/90 text-sm">
-                        <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_1_projects/_1_1_relational_diagrams/_1_1_1_management_system/Clinic.mmd"
-                                target="_blank"><i class="fas fa-hospital-alt"></i> Clinic System</a></li>
-                        <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_1_projects/_1_1_relational_diagrams/_1_1_1_management_system/Library.mmd"
-                                target="_blank"><i class="fas fa-book"></i> Library System</a></li>
-                        <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_1_projects/_1_1_relational_diagrams/_1_1_1_management_system/KarateClub.mmd"
-                                target="_blank"><i class="fas fa-user-ninja"></i> Karate Club</a></li>
-                        <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_1_projects/_1_1_relational_diagrams/_1_1_1_management_system/CarRental.mmd"
-                                target="_blank"><i class="fas fa-car-side"></i> Car Rental</a></li>
-                        <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_1_projects/_1_1_relational_diagrams/_1_1_1_management_system/OnlineStore.mmd"
-                                target="_blank"><i class="fas fa-store"></i> Online Store</a></li>
-                    </ul>
-                </div>
+                <i class="fab fa-github mr-2"></i>
 
-                <div class="space-y-4">
-                    <span class="badge badge-frontend inline-block italic text-[10px]">2. Concepts</span>
-                    <ul class="project-list text-teal-400/90 text-sm">
-                        <li><i class="fas fa-id-badge text-xs"></i> What is GUID & How to use?</li>
-                        <li><i class="fas fa-file-import text-xs"></i> Buy and Import Data</li>
-                        <li><i class="fas fa-columns text-xs"></i> Extract Data to Separate Table</li>
-                    </ul>
-                    <div class="p-3 rounded-xl bg-white/5 border border-white/5 mt-2">
-                        <p class="text-[10px] text-gray-500 leading-relaxed uppercase tracking-tighter italic">Essential
-                            practices for database administration and design.</p>
-                    </div>
-                </div>
+                GitHub
 
-                <div class="space-y-4">
-                    <span
-                        class="badge bg-purple-500/10 text-purple-400 border border-purple-500/20 inline-block italic text-[10px]">3.
-                        Problems (54 Challenges)</span>
-                    <div class="max-h-48 overflow-y-auto pr-2 custom-scrollbar">
-                        <ul class="project-list text-purple-300/80 text-[11px] space-y-2">
-                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_1_create_master_view"
-                                    target="_blank"><i class="fas fa-check-circle"></i> 01: Master View Creation</a>
-                            </li>
-                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_7_get_number_of_vehicles_made_between_1950_and_2000_per_make_and_add_total_vehicles_column_beside_it_then_calculate_it_is_percentage"
-                                    target="_blank"><i class="fas fa-check-circle"></i> 07: Vehicles Percentage</a></li>
-                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_13_get_all_makes_and_count_of_vehicles_that_manufactures_more_than_20k_vehicles"
-                                    target="_blank"><i class="fas fa-check-circle"></i> 13: 20K+ Vehicles Counts</a>
-                            </li>
-                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_31_get_all_vehicle_display_name_and_year_and_add_extra_column_to_calculate_the_age_of_the_car_then_sort_the_results_by_age_desc"
-                                    target="_blank"><i class="fas fa-check-circle"></i> 31: Dynamic Age Calc</a></li>
-                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_42_get_a_table_of_unique_engine_cc_and_calculate_tax_per_engine_cc"
-                                    target="_blank"><i class="fas fa-check-circle"></i> 42: Tax per Engine CC</a></li>
-                            <li><a href="https://github.com/Albarafahed/SQL-Database-Part-of-Concepts-and-Practices-by-Programming-Advices/tree/master/src/_2_problems/_2_51_self_referential_queries"
-                                    target="_blank"><i class="fas fa-sync-alt"></i> 51-54: Self Referential Join</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <p
-                        class="text-[10px] text-purple-400/60 text-center font-bold tracking-widest uppercase mt-2 italic">
-                        +
-                        Full 54 solved problems</p>
-                </div>
-            </div>
+            </a>
+
+        </div>
+
+        <!-- Mobile Button -->
+
+        <button id="menu-btn"
+            class="lg:hidden text-2xl">
+
+            <i class="fas fa-bars"></i>
+
+        </button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+
+    <div id="mobile-menu"
+        class="hidden glass border-t border-white/10">
+
+        <div class="flex flex-col p-5 font-semibold">
+
+            <a href="index.html"
+                class="py-3 text-blue-400">
+
+                Home
+            </a>
+
+            <a href="#about"
+                class="py-3 hover:text-blue-400">
+                About
+            </a>
+
+            <a href="dotnet-projects.html"
+                class="py-3 hover:text-blue-400">
+
+                .NET Projects
+            </a>
+
+            <a href="other-projects.html"
+                class="py-3 hover:text-blue-400">
+                Other Projects
+            </a>
+
+            <a href="#skills"
+                class="py-3 hover:text-blue-400">
+                Skills
+            </a>
+
+            <a href="#contact"
+                class="py-3 hover:text-blue-400">
+                Contact
+            </a>
+
+            <a href="https://github.com/Albarafahed"
+                target="_blank"
+                class="py-3 hover:text-blue-400">
+
+                <i class="fab fa-github mr-2"></i>
+
+                GitHub
+
+            </a>
+
         </div>
 
     </div>
-    <section id="tech" class="py-20 px-6 max-w-5xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-10 italic">🛠 Technologies & Skills</h2>
-        <div class="flex flex-wrap justify-center gap-4 text-sm font-bold">
-            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">C++</span>
-            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">Sql</span>
-            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">Flutter / Dart</span>
-            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">C# Windows Forms / Sql Server</span>
-            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">PHP / MySQL</span>
-            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">Python</span>
-            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">Git & GitHub</span>
-            <span class="bg-white/5 border border-white/10 px-6 py-2 rounded-full">HTML / CSS</span>
-        </div>
-    </section>
+
+</nav>
 
 
-    <section id="hiring" class="py-12 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4 italic text-white" id="work"><i
-                    class="fas fa-briefcase ml-3 text-blue-500"></i>أنا
-                أتطلع حالياً لفرص عمل في المجالات التالية:</h2>
-            <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="job-card p-6 rounded-2xl glass">
-                <h3 class="text-xl font-bold text-blue-400 mb-3">Flutter Developer</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">بناء تطبيقات موبايل احترافية (Android & iOS) مع التركيز
-                    على واجهات مستخدم سلسة وأداء عالي.</p>
-            </div>
-            <div class="job-card p-6 rounded-2xl glass border-r-cyan-500">
-                <h3 class="text-xl font-bold text-cyan-400 mb-3">Backend Developer (PHP)</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">تطوير أنظمة ويب قوية وإدارة قواعد البيانات MySQL
-                    باستخدام PHP مع مراعاة الأمان والكفاءة.</p>
-            </div>
-            <div class="job-card p-6 rounded-2xl glass border-r-red-500">
-                <h3 class="text-xl font-bold text-red-500 mb-3">C# Desktop Developer</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">تصميم وتطوير برمجيات سطح المكتب (Management Systems)
-                    باستخدام WinForms وهيكلية 3-Tier.</p>
-            </div>
-        </div>
-    </section>
 
 
-    <footer class="py-20 px-6 text-center border-t border-white/5">
-        <div class="max-w-2xl mx-auto glass p-10 rounded-3xl">
-            <h2 class="text-2xl font-bold mb-6 italic">🎯 الهدف</h2>
-            <p class="text-gray-400 mb-8 leading-relaxed">
-                تنظيم جميع المشاريع وتوثيق التقدم، واستخدام هذا السجل كـ Portfolio برمجي متكامل يعكس الخبرة في مختلف
-                التقنيات.
-            </p>
-            <div class="flex justify-center gap-8">
-                <a href="https://github.com/Albarafahed" class="text-gray-400 hover:text-white transition text-3xl"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/albara-fahed-alharissy-689888299"
-                    class="text-gray-400 hover:text-blue-500 transition text-3xl"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p class="mt-10 text-xs text-gray-600 uppercase tracking-widest">Albara Fahed | 2026</p>
-            <p class="mt-2 text-yellow-500/50 text-[10px]">⭐ Support the project on GitHub</p>
-        </div>
-    </footer>
+<!-- Hero Section -->
+
+
+<section id="home"
+class="pt-40 pb-20 px-6">
+
+
+<div class="max-w-5xl mx-auto text-center">
+
+
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full
+border border-green-500/30 bg-green-500/10 text-green-400 text-sm mb-8">
+
+<span class="w-2 h-2 bg-green-400 rounded-full"></span>
+
+Open To Work
+
+</div>
+
+
+
+<h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">
+
+
+Albara Fahed
+
+
+<br>
+
+
+<span class="gradient-text">
+
+C# .NET Developer
+
+</span>
+
+
+</h1>
+
+
+
+<p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+
+
+I build reliable desktop and backend applications using
+<strong class="text-blue-400">
+C#, .NET, SQL Server
+</strong>
+
+and modern software engineering practices.
+
+<br><br>
+
+Focused on clean architecture, maintainable code,
+and database-driven solutions.
+
+
+</p>
+
+
+
+
+<div class="flex justify-center gap-5 mt-10">
+
+
+<a href="#projects"
+class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-xl font-bold">
+
+View Projects
+
+</a>
+
+
+<a href="https://github.com/Albarafahed"
+target="_blank"
+class="glass px-8 py-3 rounded-xl font-bold">
+
+<i class="fab fa-github"></i>
+
+GitHub
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- About Section -->
+
+
+<section id="about"
+class="py-20 px-6 max-w-6xl mx-auto">
+
+
+<div class="glass rounded-3xl p-10">
+
+
+<h2 class="text-3xl font-bold text-white mb-6">
+
+About Me
+
+</h2>
+
+
+
+<p class="text-gray-400 leading-relaxed">
+
+
+I am a C# .NET Developer specialized in building
+desktop applications and backend solutions.
+
+
+<br><br>
+
+
+My experience includes Windows Forms applications,
+SQL Server database systems, ADO.NET,
+layered architecture, and software engineering principles.
+
+
+<br><br>
+
+
+I focus on writing structured code and creating
+solutions that are easy to maintain and extend.
+
+
+</p>
+
+
+
+</div>
+
+
+</section>
+
+<!-- Projects Section -->
+
+<section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
+
+
+<h2 class="text-4xl font-bold text-center text-white mb-12">
+
+Featured .NET Projects
+
+</h2>
+
+
+
+<div class="grid md:grid-cols-2 gap-8">
+
+
+
+<!-- DVLD -->
+
+<div class="glass card-hover rounded-3xl p-8">
+
+
+<div class="flex items-center gap-4 mb-5">
+
+<i class="fas fa-id-card text-4xl text-blue-400"></i>
+
+<h3 class="text-2xl font-bold text-white">
+DVLD System
+</h3>
+
+</div>
+
+
+
+<p class="text-gray-400 mb-6 leading-relaxed">
+
+Drivers, License & Vehicle Department System.
+
+A desktop management system built using
+C# WinForms and SQL Server with a 3-Tier Architecture.
+
+</p>
+
+
+
+<div class="flex flex-wrap gap-2 mb-6">
+
+<span class="bg-blue-500/10 text-blue-400 px-3 py-1 rounded-lg text-sm">
+C#
+</span>
+
+<span class="bg-red-500/10 text-red-400 px-3 py-1 rounded-lg text-sm">
+SQL Server
+</span>
+
+<span class="bg-green-500/10 text-green-400 px-3 py-1 rounded-lg text-sm">
+3-Tier
+</span>
+
+</div>
+
+
+
+<ul class="text-gray-400 space-y-2 text-sm">
+
+
+<li>
+✓ Drivers Management
+</li>
+
+
+<li>
+✓ License Management
+</li>
+
+
+<li>
+✓ Testing Workflow
+</li>
+
+
+<li>
+✓ User Management
+</li>
+
+
+</ul>
+
+
+
+<a href="https://github.com/Albarafahed/DVLD-Windows-Form-CSharp"
+target="_blank"
+class="inline-block mt-6 text-blue-400 font-bold">
+
+View Repository →
+
+</a>
+
+
+</div>
+
+
+<!-- Clinic -->
+
+
+<div class="glass card-hover rounded-3xl p-8">
+
+
+<div class="flex items-center gap-4 mb-5">
+
+
+<i class="fas fa-hospital text-4xl text-green-400"></i>
+
+
+<h3 class="text-2xl font-bold text-white">
+
+Clinic Management System
+
+</h3>
+
+
+</div>
+
+
+
+
+<p class="text-gray-400 mb-6">
+
+A Windows Forms management system for clinic operations
+using C# and SQL Server.
+
+</p>
+
+
+
+
+<div class="flex flex-wrap gap-2 mb-6">
+
+
+<span class="bg-green-500/10 text-green-400 px-3 py-1 rounded-lg">
+
+C#
+
+</span>
+
+
+<span class="bg-red-500/10 text-red-400 px-3 py-1 rounded-lg">
+
+SQL Server
+
+</span>
+
+
+<span class="bg-blue-500/10 text-blue-400 px-3 py-1 rounded-lg">
+
+Architecture
+
+</span>
+
+
+</div>
+
+
+
+<ul class="text-gray-400 space-y-2 text-sm">
+
+
+<li>
+✓ Patients Management
+</li>
+
+
+<li>
+✓ Doctors Management
+</li>
+
+
+<li>
+✓ Appointments
+</li>
+
+
+<li>
+✓ Medical Operations
+</li>
+
+
+</ul>
+
+<a href="https://github.com/Albarafahed/Clinic-Windows-Form-CSharp"
+target="_blank"
+class="inline-block mt-6 text-purple-400 font-bold">
+
+View Repository →
+
+</a>
+
+</div>
+
+
+<!-- Real Estate Management System -->
+
+<div class="glass card-hover rounded-3xl p-8">
+
+<div class="flex items-center gap-4 mb-5">
+
+<i class="fas fa-building text-4xl text-green-400"></i>
+
+<h3 class="text-2xl font-bold text-white">
+Real Estate Management System
+</h3>
+
+</div>
+
+<p class="text-gray-400 mb-6 leading-relaxed">
+
+A desktop real estate management system built using
+C# WinForms, SQL Server, ADO.NET, and N-Tier Architecture.
+
+Manage clients, properties, contracts, payments, and reports through an organized desktop application.
+
+</p>
+
+<div class="flex flex-wrap gap-2 mb-6">
+
+<span class="bg-blue-500/10 text-blue-400 px-3 py-1 rounded-lg text-sm">
+C#
+</span>
+
+<span class="bg-red-500/10 text-red-400 px-3 py-1 rounded-lg text-sm">
+SQL Server
+</span>
+
+<span class="bg-yellow-500/10 text-yellow-400 px-3 py-1 rounded-lg text-sm">
+ADO.NET
+</span>
+
+<span class="bg-green-500/10 text-green-400 px-3 py-1 rounded-lg text-sm">
+N-Tier
+</span>
+
+</div>
+
+<ul class="text-gray-400 space-y-2 text-sm">
+
+<li>
+✓ Client Management
+</li>
+
+<li>
+✓ Property Management
+</li>
+
+<li>
+✓ Contract Management
+</li>
+
+<li>
+✓ Payment & Reports
+</li>
+
+</ul>
+
+<a href="https://github.com/Albarafahed/RealEstateSolution-Windows-Form-CSharp"
+target="_blank"
+class="inline-block mt-6 text-blue-400 font-bold">
+
+View Repository →
+
+</a>
+
+</div>
+
+
+<!-- Contacts -->
+
+
+<div class="glass card-hover rounded-3xl p-8">
+
+
+<div class="flex items-center gap-4 mb-5">
+
+
+<i class="fas fa-address-book text-4xl text-purple-400"></i>
+
+
+<h3 class="text-2xl font-bold text-white">
+
+Contacts Management
+
+</h3>
+
+
+</div>
+
+
+
+
+<p class="text-gray-400 mb-6 leading-relaxed">
+
+
+A desktop contact management application built with
+C# WinForms, SQL Server, and ADO.NET.
+
+</p>
+
+
+
+<div class="flex flex-wrap gap-2 mb-6">
+
+
+<span class="bg-purple-500/10 text-purple-400 px-3 py-1 rounded-lg text-sm">
+WinForms
+</span>
+
+
+<span class="bg-red-500/10 text-red-400 px-3 py-1 rounded-lg text-sm">
+SQL Server
+</span>
+
+
+<span class="bg-orange-500/10 text-orange-400 px-3 py-1 rounded-lg text-sm">
+ADO.NET
+</span>
+
+
+</div>
+
+
+
+
+<ul class="text-gray-400 space-y-2 text-sm">
+
+
+<li>
+✓ CRUD Operations
+</li>
+
+
+<li>
+✓ Country Management
+</li>
+
+
+<li>
+✓ Image Path Handling
+</li>
+
+
+<li>
+✓ DataGridView Binding
+</li>
+
+
+</ul>
+
+
+
+
+<a href="https://github.com/Albarafahed/Contact-Windows-Form-CSharp"
+target="_blank"
+class="inline-block mt-6 text-purple-400 font-bold">
+
+View Repository →
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Backend -->
+
+
+<div class="glass card-hover rounded-3xl p-8">
+
+
+<div class="flex items-center gap-4 mb-5">
+
+
+<i class="fas fa-server text-4xl text-cyan-400"></i>
+
+
+<h3 class="text-2xl font-bold text-white">
+
+ASP.NET Core APIs
+
+</h3>
+
+
+</div>
+
+
+
+<p class="text-gray-400 mb-6">
+
+
+Backend development projects focused on REST APIs,
+database relationships, and authentication concepts.
+
+</p>
+
+
+
+<div class="flex flex-wrap gap-2 mb-6">
+
+
+<span class="bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-lg">
+
+ASP.NET Core
+
+</span>
+
+
+<span class="bg-purple-500/10 text-purple-400 px-3 py-1 rounded-lg">
+
+Entity Framework Core
+
+</span>
+
+
+<span class="bg-yellow-500/10 text-yellow-400 px-3 py-1 rounded-lg">
+
+JWT
+
+</span>
+
+
+</div>
+
+
+
+
+<ul class="text-gray-400 space-y-2 text-sm">
+
+
+<li>
+✓ RESTful APIs
+</li>
+
+
+<li>
+✓ Entity Framework Core
+</li>
+
+
+<li>
+✓ Authentication
+</li>
+
+
+<li>
+✓ SQL Server Integration
+</li>
+
+
+</ul>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- Architecture -->
+
+
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+
+<div class="glass rounded-3xl p-10 text-center">
+
+
+<h2 class="text-3xl font-bold text-white mb-8">
+
+Software Architecture
+
+</h2>
+
+
+
+<div class="text-blue-400 font-bold text-lg space-y-4">
+
+
+<div>
+Presentation Layer
+</div>
+
+
+<div>
+↓
+</div>
+
+
+<div>
+Business Logic Layer
+</div>
+
+
+<div>
+↓
+</div>
+
+
+<div>
+Data Access Layer
+</div>
+
+
+<div>
+↓
+</div>
+
+
+<div>
+SQL Server Database
+</div>
+
+
+</div>
+
+
+
+<p class="text-gray-400 mt-8">
+
+Applying:
+
+OOP,
+SOLID Principles,
+Separation of Concerns,
+and Layered Architecture.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+<!-- Skills Section -->
+
+<section id="skills" class="py-24 px-6 max-w-6xl mx-auto">
+
+
+<h2 class="text-4xl font-bold text-center text-white mb-12">
+
+Technology Stack
+
+</h2>
+
+
+
+
+<div class="grid md:grid-cols-3 gap-8">
+
+
+
+<!-- Backend -->
+
+<div class="glass card-hover rounded-3xl p-8">
+
+
+<i class="fas fa-code text-4xl text-blue-400 mb-5"></i>
+
+
+<h3 class="text-2xl font-bold text-white mb-5">
+
+Backend Development
+
+</h3>
+
+
+<ul class="text-gray-400 space-y-3">
+
+
+<li>
+✓ C#
+</li>
+
+
+<li>
+✓ .NET Framework
+</li>
+
+
+<li>
+✓ ASP.NET Core Web API
+</li>
+
+
+<li>
+✓ Entity Framework Core
+</li>
+
+
+<li>
+✓ LINQ
+</li>
+
+
+<li>
+✓ RESTful APIs
+</li>
+
+
+<li>
+✓ JWT Authentication
+</li>
+
+
+<li>
+✓ Dependency Injection
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+<!-- Desktop -->
+
+<div class="glass card-hover rounded-3xl p-8">
+
+
+<i class="fas fa-desktop text-4xl text-red-400 mb-5"></i>
+
+
+<h3 class="text-2xl font-bold text-white mb-5">
+
+Desktop Development
+
+</h3>
+
+
+
+<ul class="text-gray-400 space-y-3">
+
+
+<li>
+✓ Windows Forms
+</li>
+
+
+<li>
+✓ .NET Framework 4.8
+</li>
+
+
+<li>
+✓ ADO.NET
+</li>
+
+
+<li>
+✓ DataGridView
+</li>
+
+
+<li>
+✓ Desktop Management Systems
+</li>
+
+
+<li>
+✓ 3-Tier Architecture
+</li>
+
+
+</ul>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Database -->
+
+<div class="glass card-hover rounded-3xl p-8">
+
+
+<i class="fas fa-database text-4xl text-green-400 mb-5"></i>
+
+
+<h3 class="text-2xl font-bold text-white mb-5">
+
+Database
+
+</h3>
+
+
+
+<ul class="text-gray-400 space-y-3">
+
+
+<li>
+✓ Microsoft SQL Server
+</li>
+
+
+<li>
+✓ Database Design
+</li>
+
+
+<li>
+✓ Relational Database
+</li>
+
+
+<li>
+✓ Tables & Relationships
+</li>
+
+
+<li>
+✓ Queries
+</li>
+
+
+<li>
+✓ Data Normalization
+</li>
+
+
+</ul>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- Engineering Practices -->
+
+
+<section class="py-20 px-6 max-w-6xl mx-auto">
+
+
+<div class="glass rounded-3xl p-10">
+
+
+<h2 class="text-3xl font-bold text-white mb-8 text-center">
+
+Engineering Practices
+
+</h2>
+
+
+
+<div class="grid md:grid-cols-2 gap-5 text-gray-400">
+
+
+<div class="p-5 bg-white/5 rounded-xl">
+
+<i class="fas fa-cubes text-blue-400 ml-2"></i>
+
+Object-Oriented Programming (OOP)
+
+</div>
+
+
+
+<div class="p-5 bg-white/5 rounded-xl">
+
+<i class="fas fa-layer-group text-green-400 ml-2"></i>
+
+Layered Architecture
+
+</div>
+
+
+
+<div class="p-5 bg-white/5 rounded-xl">
+
+<i class="fas fa-check-double text-purple-400 ml-2"></i>
+
+SOLID Principles
+
+</div>
+
+
+
+<div class="p-5 bg-white/5 rounded-xl">
+
+<i class="fas fa-project-diagram text-yellow-400 ml-2"></i>
+
+Separation of Concerns
+
+</div>
+
+
+
+<div class="p-5 bg-white/5 rounded-xl">
+
+<i class="fas fa-recycle text-cyan-400 ml-2"></i>
+
+Reusable Components
+
+</div>
+
+
+
+<div class="p-5 bg-white/5 rounded-xl">
+
+<i class="fas fa-code-branch text-red-400 ml-2"></i>
+
+Clean Code Practices
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- Tools -->
+
+
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+
+<h2 class="text-3xl font-bold text-center text-white mb-10">
+
+Tools
+
+</h2>
+
+
+
+<div class="flex flex-wrap justify-center gap-4">
+
+
+<span class="glass px-6 py-3 rounded-xl">
+Visual Studio
+</span>
+
+
+<span class="glass px-6 py-3 rounded-xl">
+Git
+</span>
+
+
+<span class="glass px-6 py-3 rounded-xl">
+GitHub
+</span>
+
+
+<span class="glass px-6 py-3 rounded-xl">
+SQL Server Management Studio
+</span>
+
+
+<span class="glass px-6 py-3 rounded-xl">
+Swagger
+</span>
+
+
+<span class="glass px-6 py-3 rounded-xl">
+Postman
+</span>
+
+
+</div>
+
+
+</section>
+
+<!-- Contact Section -->
+
+<section id="contact" class="py-24 px-6 max-w-5xl mx-auto">
+
+
+<div class="glass rounded-3xl p-10 text-center">
+
+
+<h2 class="text-4xl font-bold text-white mb-6">
+
+Let's Build Something Together
+
+</h2>
+
+
+
+<p class="text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
+
+
+I am interested in opportunities where I can contribute
+as a C# .NET Developer by building reliable software solutions,
+desktop applications, and backend systems.
+
+
+</p>
+
+
+
+
+
+<div class="flex flex-wrap justify-center gap-5">
+
+
+<a href="https://github.com/Albarafahed"
+target="_blank"
+class="glass px-8 py-4 rounded-xl font-bold hover:text-blue-400 transition">
+
+
+<i class="fab fa-github ml-2"></i>
+
+GitHub
+
+</a>
+
+
+
+
+
+<a href="https://www.linkedin.com/in/albara-csharp-developer/"
+target="_blank"
+class="glass px-8 py-4 rounded-xl font-bold hover:text-blue-400 transition">
+
+
+<i class="fab fa-linkedin ml-2"></i>
+
+LinkedIn
+
+</a>
+
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- Footer -->
+
+
+<footer class="border-t border-white/10 py-10 px-6 text-center">
+
+
+<div class="text-2xl font-bold gradient-text mb-4">
+
+ALBARA.DEV
+
+</div>
+
+
+
+<p class="text-gray-500 text-sm">
+
+
+C# .NET Developer | Desktop & Backend Applications
+
+
+</p>
+
+
+
+<p class="text-gray-600 text-xs mt-5">
+
+
+© 2026 Albara Fahed Alharissy. All rights reserved.
+
+</p>
+
+
+
+</footer>
+<script src="js/main.js"></script>
+
+
 
 </body>
 
 </html>
-
-
-
-
-
