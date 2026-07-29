@@ -80,25 +80,25 @@ export function ProjectCard({ project, index, onDetails }: ProjectCardProps) {
       className="group"
     >
       <Card className="project-card flex h-full flex-col overflow-hidden transition duration-300 group-hover:-translate-y-1 group-hover:border-cyan/35 group-hover:shadow-cyan">
-        <div className={`relative h-40 overflow-hidden border-b border-white/10 bg-gradient-to-br ${toneMap[project.category]} p-5`}>
-          <div className="absolute -right-7 -top-10 size-36 rounded-full border border-cyan/20" />
-          <div className="absolute right-9 top-10 size-14 rounded-full border border-white/10" />
-          <div className="absolute bottom-0 left-0 h-1 w-2/3 bg-gradient-to-r from-cyan to-transparent" />
-          <div className="relative flex h-full flex-col justify-between">
-            <div className="flex items-start justify-between">
-              <span className="rounded-full border border-cyan/20 bg-[#08132f]/55 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-cyan backdrop-blur">
-                {project.category}
-              </span>
-              <div className="grid size-11 place-items-center rounded-xl border border-white/15 bg-white/[0.06] text-cyan shadow-cyan">
-                <Icon className="size-5" aria-hidden="true" />
-              </div>
-            </div>
-            <div className="flex items-center gap-2 font-mono text-xs text-white/40">
-              <Binary className="size-3.5" />
-              <span>PROJECT / {project.slug.toUpperCase().slice(0, 18)}</span>
-            </div>
-          </div>
-        </div>
+        <div className="relative h-48 overflow-hidden border-b border-white/10">
+  {project.image ? (
+    <img
+      src={project.image}
+      alt={project.title}
+      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+    />
+  ) : (
+    <div
+      className={`flex h-full items-center justify-center bg-gradient-to-br ${toneMap[project.category]}`}
+    >
+      <Icon className="size-16 text-cyan" />
+    </div>
+  )}
+
+  <div className="absolute left-3 top-3 rounded-full bg-[#08132f]/80 px-3 py-1 text-xs font-semibold text-cyan backdrop-blur">
+    {project.category}
+  </div>
+</div>
 
         <div className="flex flex-1 flex-col p-5">
           <h3 className="text-xl font-bold tracking-[-0.02em] text-white">{project.title}</h3>

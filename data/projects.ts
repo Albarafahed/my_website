@@ -29,6 +29,8 @@ export interface Project {
   repository?: string;
   icon: ProjectIcon;
   featured?: boolean;
+  image?: string;
+  gallery?: string[];
 }
 
 // Source of truth for every project and repository extracted from the legacy portfolio.
@@ -36,6 +38,16 @@ export const projects: Project[] = [
   {
     slug: "dvld-system",
     title: "DVLD System",
+     image: "/images/DVLD/frmMain.png",
+  gallery: [
+    "/images/DVLD/frmlogin.png",
+    "/images/DVLD/frmMain.png",
+    "/images/DVLD/frmListPeople.png",
+    "/images/DVLD/frmListDriver.png",
+    "/images/DVLD/frmListLocalDrivingLicense.png",
+    "/images/DVLD/frmDetainLicenses.png",
+    "/images/DVLD/frmReleaseDetainedLicense.png",
+  ],
     category: ".NET",
     description: "Drivers, License & Vehicle Department System. A complete Windows Forms management system.",
     technologies: ["C# WinForms", "SQL Server", "3-Tier", "ADO.NET"],
@@ -47,6 +59,12 @@ export const projects: Project[] = [
   {
     slug: "contacts-management",
     title: "Contacts Management",
+     image: "/images/Contact/frmListContacts.png",
+  gallery: [
+    "/images/Contact/frmListContacts.png",
+    "/images/Contact/frmAddContact.png",
+    "/images/Contact/frmEdiContact.png",
+  ],
     category: ".NET",
     description: "Contact management system using layered architecture and SQL Server database.",
     technologies: ["C# WinForms", "SQL Server", "ADO.NET", "Layered Architecture"],
@@ -58,6 +76,19 @@ export const projects: Project[] = [
   {
     slug: "clinic-management",
     title: "Clinic Management System",
+    image: "/images/Clinic/frmMain1.png",
+
+  gallery: [
+    "/images/Clinic/frmLogin.png",
+    "/images/Clinic/frmMianResapations.png",
+    "/images/Clinic/frmMainDoctor.png",
+    "/images/Clinic/frmMainPharmicy.png",
+    "/images/Clinic/frmMainCasher.png",
+    "/images/Clinic/frmListPatients.png",
+    "/images/Clinic/frmlistDoctor.png",
+    "/images/Clinic/frmlistUser.png",
+    "/images/Clinic/frmMangeBills.png",
+  ],
     category: ".NET",
     description: "A healthcare management desktop application built using C# and SQL Server.",
     technologies: ["C# WinForms", "SQL Server", ".NET Framework 4.7.2", "Architecture"],
@@ -69,6 +100,17 @@ export const projects: Project[] = [
   {
     slug: "real-estate-solution",
     title: "Real Estate Management System",
+     image: "/images/Real/frmMain.png",
+  gallery: [
+    "/images/Real/frmLogin.png",
+    "/images/Real/frmMain.png",
+    "/images/Real/frmCustomers.png",
+    "/images/Real/frmMangeRealEstate.png",
+    "/images/Real/frmContracts.png",
+    "/images/Real/frmPayments.png",
+    "/images/Real/frmReports.png",
+    "/images/Real/frmSetings.png",
+  ],
     category: ".NET",
     description:
       "A desktop real estate management system built using C# WinForms, SQL Server, ADO.NET, and N-Tier Architecture. Manage clients, properties, contracts, payments, and reports through an organized desktop application.",
@@ -81,6 +123,16 @@ export const projects: Project[] = [
   {
     slug: "pizza-ordering",
     title: "Pizza Ordering System",
+    image: "/images/Pizza/frmMain.png",
+  gallery: [
+    "/images/Pizza/frmLogin.png",
+    "/images/Pizza/frmMain.png",
+    "/images/Pizza/frmPizzaOrder.png",
+    "/images/Pizza/frmJuicesOrder.png",
+    "/images/Pizza/frmDesertOrder.png",
+    "/images/Pizza/frmRemoteDelivery.png",
+    "/images/Pizza/frmPrintBills.png",
+  ],
     category: ".NET",
     description: "Windows Forms ordering application built using C#.",
     technologies: ["C# WinForms", "UI Design", "Order Management"],
