@@ -36,49 +36,12 @@ export interface Project {
 // Source of truth for every project and repository extracted from the legacy portfolio.
 export const projects: Project[] = [
   {
-    slug: "dvld-system",
-    title: "DVLD System",
-     image: "/images/DVLD/frmMain.png",
-  gallery: [
-    "/images/DVLD/frmlogin.png",
-    "/images/DVLD/frmMain.png",
-    "/images/DVLD/frmListPeople.png",
-    "/images/DVLD/frmListDriver.png",
-    "/images/DVLD/frmListLocalDrivingLicense.png",
-    "/images/DVLD/frmDetainLicenses.png",
-    "/images/DVLD/frmReleaseDetainedLicense.png",
-  ],
-    category: ".NET",
-    description: "Drivers, License & Vehicle Department System. A complete Windows Forms management system.",
-    technologies: ["C# WinForms", "SQL Server", "3-Tier", "ADO.NET"],
-    highlights: ["Drivers management", "License management", "Testing workflow", "User management"],
-    repository: "https://github.com/Albarafahed/DVLD-Windows-Form-CSharp",
-    icon: "id",
-    featured: true,
-  },
-  {
-    slug: "contacts-management",
-    title: "Contacts Management",
-     image: "/images/Contact/frmListContacts.png",
-  gallery: [
-    "/images/Contact/frmListContacts.png",
-    "/images/Contact/frmAddContact.png",
-    "/images/Contact/frmEdiContact.png",
-  ],
-    category: ".NET",
-    description: "Contact management system using layered architecture and SQL Server database.",
-    technologies: ["C# WinForms", "SQL Server", "ADO.NET", "Layered Architecture"],
-    highlights: ["Contact CRUD operations", "Country management", "Image path handling", "DataGridView binding"],
-    repository: "https://github.com/Albarafahed/Contact-Windows-Form-CSharp",
-    icon: "contacts",
-    featured: true,
-  },
-  {
     slug: "clinic-management",
     title: "Clinic Management System",
-    image: "/images/Clinic/frmMain1.png",
+    image: "/images/Clinic/ClinicSystem.png",
 
   gallery: [
+    "/images/Clinic/frmMain1.png",
     "/images/Clinic/frmLogin.png",
     "/images/Clinic/frmMianResapations.png",
     "/images/Clinic/frmMainDoctor.png",
@@ -97,10 +60,51 @@ export const projects: Project[] = [
     icon: "clinic",
     featured: true,
   },
+
+  {
+    slug: "dvld-system",
+    title: "DVLD System",
+     image: "/images/DVLD/DVLDSystem.png",
+  gallery: [
+    "/images/DVLD/frmlogin.png",
+    "/images/DVLD/frmMain.png",
+    "/images/DVLD/frmListPeople.png",
+    "/images/DVLD/frmListDriver.png",
+    "/images/DVLD/frmListLocalDrivingLicense.png",
+    "/images/DVLD/frmDetainLicenses.png",
+    "/images/DVLD/frmReleaseDetainedLicense.png",
+  ],
+    category: ".NET",
+    description: "Drivers, License & Vehicle Department System. A complete Windows Forms management system.",
+    technologies: ["C# WinForms", "SQL Server", "3-Tier", "ADO.NET"],
+    highlights: ["Drivers management", "License management", "Testing workflow", "User management"],
+    repository: "https://github.com/Albarafahed/DVLD-Windows-Form-CSharp",
+    icon: "id",
+    featured: true,
+  },
+
+  {
+    slug: "contacts-management",
+    title: "Contacts Management",
+     image: "/images/Contact/ContactSystem.png",
+  gallery: [
+    "/images/Contact/frmListContacts.png",
+    "/images/Contact/frmAddContact.png",
+    "/images/Contact/frmEdiContact.png",
+  ],
+    category: ".NET",
+    description: "Contact management system using layered architecture and SQL Server database.",
+    technologies: ["C# WinForms", "SQL Server", "EF", "Layered Architecture"],
+    highlights: ["Contact CRUD operations", "Country management", "Image path handling", "DataGridView binding"],
+    repository: "https://github.com/Albarafahed/Contact-Windows-Form-CSharp",
+    icon: "contacts",
+    featured: true,
+  },
+  
   {
     slug: "real-estate-solution",
     title: "Real Estate Management System",
-     image: "/images/Real/frmMain.png",
+     image: "/images/Real/RealEstateSystem.png",
   gallery: [
     "/images/Real/frmLogin.png",
     "/images/Real/frmMain.png",
@@ -123,7 +127,7 @@ export const projects: Project[] = [
   {
     slug: "pizza-ordering",
     title: "Pizza Ordering System",
-    image: "/images/Pizza/frmMain.png",
+    image: "/images/Pizza/PizzaSystem.png",
   gallery: [
     "/images/Pizza/frmLogin.png",
     "/images/Pizza/frmMain.png",
@@ -135,7 +139,7 @@ export const projects: Project[] = [
   ],
     category: ".NET",
     description: "Windows Forms ordering application built using C#.",
-    technologies: ["C# WinForms", "UI Design", "Order Management"],
+    technologies: ["C# WinForms", "UI Design", "Order Management","Json Storage"],
     highlights: ["C# WinForms", "User interface design", "Order management"],
     repository: "https://github.com/Albarafahed/Pizza-Ordering-Management-System--Windows-Form-CSharp",
     icon: "pizza",
@@ -143,6 +147,7 @@ export const projects: Project[] = [
   {
     slug: "calculator",
     title: "Calculator",
+    image: "/images/Calculator.png",
     category: ".NET",
     description: "A simple calculator desktop application.",
     technologies: ["C#", "Windows Forms", "Event Handling"],
@@ -153,6 +158,7 @@ export const projects: Project[] = [
   {
     slug: "note-book",
     title: "Note Book",
+    image: "/images/Notebook.png",
     category: ".NET",
     description: "Text editing desktop application.",
     technologies: ["C#", "Windows Forms", "File Handling"],
@@ -160,19 +166,11 @@ export const projects: Project[] = [
     repository: "https://github.com/Albarafahed/Note-Book-Windows-Form-CSharp",
     icon: "notebook",
   },
-  {
-    slug: "pizza-juice-order",
-    title: "Pizza & Juice Order",
-    category: ".NET",
-    description: "Food ordering desktop application.",
-    technologies: ["C# WinForms", "UI Components", "Order Calculation"],
-    highlights: ["C# WinForms", "UI components", "Order calculation"],
-    repository: "https://github.com/Albarafahed/Pizza-Juice-Order-Windows-Form-CSharp",
-    icon: "pizza",
-  },
+  
   {
     slug: "xo-game",
     title: "XO Game",
+    image: "/images/XOGame.png",
     category: ".NET",
     description: "Classic Tic Tac Toe game using Windows Forms.",
     technologies: ["C#", "Windows Forms", "Game Logic"],
@@ -180,9 +178,11 @@ export const projects: Project[] = [
     repository: "https://github.com/Albarafahed/XO-Game-Windows-Form-CSharp",
     icon: "game",
   },
+  
   {
     slug: "programming-courses",
     title: "Programming Courses",
+    image: "/images/problemsolving.png",
     category: "C++",
     description: "A problem-solving collection spanning programming challenges and applications.",
     technologies: ["C++", "Problem Solving", "Algorithms"],
@@ -193,6 +193,7 @@ export const projects: Project[] = [
   {
     slug: "console-applications",
     title: "Console Applications",
+    image: "/images/ConsoleApplications.png",
     category: "C++",
     description: "A set of C++ console applications focused on object-oriented programming.",
     technologies: ["C++", "OOP", "Console"],
@@ -203,6 +204,7 @@ export const projects: Project[] = [
   {
     slug: "data-structures",
     title: "Data Structures",
+    image: "/images/DataStructures.png",
     category: "C++",
     description: "C++ implementations exploring core data structures and algorithms.",
     technologies: ["C++", "Algorithms", "Data Structures"],
@@ -213,6 +215,7 @@ export const projects: Project[] = [
   {
     slug: "sql-database-practice",
     title: "SQL Database Concepts & Practices",
+    image: "/images/SQLDatabase.png",
     category: "SQL Server",
     description: "Database design, SQL programming, and real-world practice in SQL Server.",
     technologies: ["SQL Server", "T-SQL", "Database Design"],
@@ -223,6 +226,7 @@ export const projects: Project[] = [
   {
     slug: "flutter-ui-projects",
     title: "Flutter UI Projects",
+    image: "/images/FlutterUIProjects.png",
     category: "Flutter",
     description: "Mobile interface projects including Modern UI, Smart Home UI, and ImageLab.",
     technologies: ["Flutter", "Dart", "UI"],
@@ -233,6 +237,7 @@ export const projects: Project[] = [
   {
     slug: "flutter-games",
     title: "Flutter Games",
+    image: "/images/FlutterGame.png",
     category: "Flutter",
     description: "A Flutter game collection focused on interaction and game mechanics.",
     technologies: ["Flutter", "Dart", "Games"],
@@ -243,6 +248,7 @@ export const projects: Project[] = [
   {
     slug: "flutter-applications",
     title: "Flutter Applications",
+    image: "/images/FlutterApplications.png",
     category: "Flutter",
     description: "Flutter application projects including a BMI Calculator and Event Manager.",
     technologies: ["Flutter", "Dart", "Apps"],
@@ -251,38 +257,9 @@ export const projects: Project[] = [
     icon: "mobile",
   },
   {
-    slug: "online-book-store",
-    title: "Online Book Store",
-    category: "PHP & MySQL",
-    description: "E-commerce web application developed using PHP and MySQL with complete CRUD operations.",
-    technologies: ["PHP", "MySQL", "CRUD"],
-    highlights: ["E-commerce", "PHP", "MySQL", "Complete CRUD operations"],
-    repository: "https://github.com/Albarafahed/online-book-store-By-php-and-my-sql",
-    icon: "book",
-  },
-  {
-    slug: "employee-task-management",
-    title: "Employee Task Management",
-    category: "PHP & MySQL",
-    description: "Task management system with authentication and database integration.",
-    technologies: ["PHP", "MySQL", "Authentication"],
-    highlights: ["Task management", "Authentication", "Database integration"],
-    repository: "https://github.com/Albarafahed/Employee-Task-Management-System-using-PHP-and-MySQL-",
-    icon: "tasks",
-  },
-  {
-    slug: "library-management",
-    title: "Library Management",
-    category: "PHP & MySQL",
-    description: "PHP & MySQL application demonstrating CRUD operations and relational databases.",
-    technologies: ["PHP", "MySQL", "Relational Database"],
-    highlights: ["PHP", "MySQL", "CRUD operations", "Relational databases"],
-    repository: "https://github.com/Albarafahed/project-php-and-my-sql-",
-    icon: "book",
-  },
-  {
     slug: "medical-center",
     title: "Medical Center",
+    image: "/images/MedicalCenter.png",
     category: "Python",
     description: "Python desktop application for managing medical center operations.",
     technologies: ["Python", "Desktop Application"],
@@ -293,6 +270,7 @@ export const projects: Project[] = [
   {
     slug: "academic-advisor-ai",
     title: "Academic Advisor AI",
+    image: "/images/AcademicAdvisorAI.png",
     category: "Python",
     description: "AI assistant prototype designed to support academic advising.",
     technologies: ["Python", "AI"],
