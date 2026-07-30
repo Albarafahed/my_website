@@ -2,7 +2,7 @@ export const profile = {
   name: "Albara Fahed Alharissy",
   shortName: "Albara Fahed",
   initials: "AF",
-  role: "Junior C#/.NET Backend Developer",
+  role:"Junior C#/.NET Developer | Backend Development",
   headline: "Building reliable backend solutions using C#, ASP.NET Core, Entity Framework Core and SQL Server.",
   summary:
     "I’m Albara Fahed Alharissy, a 4th-year Information Technology student and Junior C#/.NET Backend Developer focused on building reliable and maintainable software solutions. I bring hands-on experience with desktop systems, SQL Server, layered architecture, and clean software engineering practices while continuing to deepen my backend expertise with ASP.NET Core and Entity Framework Core.",
@@ -16,7 +16,7 @@ avatar: "/images/albara.png",
 } as const;
 
 export const siteConfig = {
-  url: "https://albarafahed.github.io",
+ url: "https://albaradev.netlify.app",
   github: "https://github.com/Albarafahed",
   title: "Albara Fahed Alharissy | Junior .NET Backend Developer",
   description:
