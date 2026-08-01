@@ -384,7 +384,7 @@ function Contact() {
                   Email
                 </span>
                 <span className="mt-0.5 block text-sm font-semibold text-white">
-                  alharissyalbara
+                  alharissyalbara@gmail.com
                 </span>
               </span>
 
