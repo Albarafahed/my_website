@@ -18,6 +18,7 @@ import {
   Phone,
   Sparkles,
   X,
+  MessageCircle,
 } from "lucide-react";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 
@@ -242,20 +243,20 @@ function ProjectDialog({ project, onClose }: { project: Project | null; onClose:
           <motion.div initial={{ opacity: 0, scale: 0.96, y: 18 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.96, y: 18 }} transition={{ duration: 0.2 }} onMouseDown={(event) => event.stopPropagation()} className="w-full max-w-xl overflow-hidden rounded-3xl border border-white/15 bg-[#0b193b] shadow-2xl">
             <div className="flex items-center justify-between border-b border-white/10 px-6 py-5"><span className="text-xs font-bold uppercase tracking-[0.16em] text-cyan">{project.category}</span><button className="grid size-9 place-items-center rounded-lg text-muted-foreground hover:bg-white/[0.08] hover:text-white" onClick={onClose} aria-label="Close project details"><X className="size-5" /></button></div>
             <div className="p-6 sm:p-8"><h3 id="project-title" className="text-2xl font-bold tracking-[-0.03em] text-white">{project.title}</h3><p className="mt-4 leading-7 text-muted-foreground">{project.description}</p>{project.gallery && project.gallery.length > 0 && (
-  <div className="mt-6">
-    <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
-      {project.gallery.map((image, index) => (
-        <img
-          key={index}
-          src={image}
-          alt={`${project.title} ${index + 1}`}
-          className="h-32 w-full rounded-lg border border-white/10 object-cover transition hover:scale-105"
-        />
-      ))}
-    </div>
-  </div>
-)}
-<div className="mt-7"><p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">Highlights</p><ul className="mt-4 grid gap-3 sm:grid-cols-2">{project.highlights.map((item) => <li key={item} className="flex gap-2 text-sm leading-6 text-slate-300"><Check className="mt-1 size-3.5 shrink-0 text-cyan" />{item}</li>)}</ul></div><div className="mt-8 flex flex-wrap gap-3">{project.repository ? <Button asChild><ExternalLink href={project.repository}><Github className="size-4" />Open repository <ArrowUpRight className="size-4" /></ExternalLink></Button> : null}<Button variant="outline" onClick={onClose}>Close</Button></div></div>
+              <div className="mt-6">
+                <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
+                  {project.gallery.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image}
+                      alt={`${project.title} ${index + 1}`}
+                      className="h-32 w-full rounded-lg border border-white/10 object-cover transition hover:scale-105"
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+              <div className="mt-7"><p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">Highlights</p><ul className="mt-4 grid gap-3 sm:grid-cols-2">{project.highlights.map((item) => <li key={item} className="flex gap-2 text-sm leading-6 text-slate-300"><Check className="mt-1 size-3.5 shrink-0 text-cyan" />{item}</li>)}</ul></div><div className="mt-8 flex flex-wrap gap-3">{project.repository ? <Button asChild><ExternalLink href={project.repository}><Github className="size-4" />Open repository <ArrowUpRight className="size-4" /></ExternalLink></Button> : null}<Button variant="outline" onClick={onClose}>Close</Button></div></div>
           </motion.div>
         </motion.div>
       ) : null}
@@ -289,8 +290,152 @@ function Journey() {
 
 function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24 sm:px-8">
-      <Card className="relative overflow-hidden p-7 sm:p-12"><div className="absolute -right-20 -top-28 size-80 rounded-full bg-cyan/10 blur-3xl" /><div className="absolute -bottom-28 -left-24 size-72 rounded-full bg-blue-600/15 blur-3xl" /><div className="relative grid items-center gap-10 lg:grid-cols-[1.15fr_.85fr]"><div><p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-cyan"><span className="size-2 rounded-full bg-cyan" />Available for internships</p><h2 className="mt-5 max-w-xl text-balance text-3xl font-bold tracking-[-0.045em] text-white sm:text-5xl">Let&apos;s build something useful.</h2><p className="mt-5 max-w-xl leading-7 text-muted-foreground">I&apos;m interested in opportunities to contribute as a Junior C#/.NET Backend Developer, learn from an engineering team, and help turn real-world requirements into dependable software.</p><div className="mt-8 flex flex-wrap gap-3"><Button asChild size="lg"><a href={profile.cvPath} download><Download className="size-4" />Download CV</a></Button><Button asChild variant="outline" size="lg"><ExternalLink href={profile.github}><Github className="size-4" />GitHub</ExternalLink></Button></div></div><div className="grid gap-3"><ExternalLink href={profile.github} className="contact-link"><span className="grid size-11 place-items-center rounded-xl bg-white/[0.06] text-cyan"><Github className="size-5" /></span><span><span className="block text-xs text-muted-foreground">GitHub</span><span className="mt-0.5 block text-sm font-semibold text-white">@Albarafahed</span></span><ArrowUpRight className="ml-auto size-4 text-muted-foreground" /></ExternalLink><ExternalLink href={profile.linkedin} className="contact-link"><span className="grid size-11 place-items-center rounded-xl bg-white/[0.06] text-cyan"><Linkedin className="size-5" /></span><span><span className="block text-xs text-muted-foreground">LinkedIn</span><span className="mt-0.5 block text-sm font-semibold text-white">albara-csharp-developer</span></span><ArrowUpRight className="ml-auto size-4 text-muted-foreground" /></ExternalLink><div className="contact-link cursor-default opacity-70"><span className="grid size-11 place-items-center rounded-xl bg-white/[0.06] text-cyan"><Mail className="size-5" /></span><span><span className="block text-xs text-muted-foreground">Direct contact</span><span className="mt-0.5 block text-sm font-semibold text-white">Reach out via GitHub or LinkedIn</span></span><Phone className="ml-auto size-4 text-muted-foreground" /></div></div></div></Card>
+    <section
+      id="contact"
+      className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24 sm:px-8"
+    >
+      <Card className="relative overflow-hidden p-7 sm:p-12">
+        <div className="absolute -right-20 -top-28 size-80 rounded-full bg-cyan/10 blur-3xl" />
+        <div className="absolute -bottom-28 -left-24 size-72 rounded-full bg-blue-600/15 blur-3xl" />
+
+        <div className="relative grid items-center gap-10 lg:grid-cols-[1.15fr_.85fr]">
+          <div>
+            <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-cyan">
+              <span className="size-2 rounded-full bg-cyan" />
+              Available for internships
+            </p>
+
+            <h2 className="mt-5 max-w-xl text-balance text-3xl font-bold tracking-[-0.045em] text-white sm:text-5xl">
+              Let&apos;s build something useful.
+            </h2>
+
+            <p className="mt-5 max-w-xl leading-7 text-muted-foreground">
+              I&apos;m interested in opportunities to contribute as a Junior
+              C#/.NET Backend Developer, learn from an engineering team, and
+              help turn real-world requirements into dependable software.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild size="lg">
+                <a href={profile.cvPath} download>
+                  <Download className="size-4" />
+                  Download CV
+                </a>
+              </Button>
+
+              <Button asChild variant="outline" size="lg">
+                <ExternalLink href={profile.github}>
+                  <Github className="size-4" />
+                  GitHub
+                </ExternalLink>
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid gap-3">
+
+            {/* GitHub */}
+            <ExternalLink href={profile.github} className="contact-link">
+              <span className="grid size-11 place-items-center rounded-xl bg-white/[0.06] text-cyan">
+                <Github className="size-5" />
+              </span>
+
+              <span>
+                <span className="block text-xs text-muted-foreground">
+                  GitHub
+                </span>
+                <span className="mt-0.5 block text-sm font-semibold text-white">
+                  @Albarafahed
+                </span>
+              </span>
+
+              <ArrowUpRight className="ml-auto size-4 text-muted-foreground" />
+            </ExternalLink>
+
+            {/* LinkedIn */}
+            <ExternalLink href={profile.linkedin} className="contact-link">
+              <span className="grid size-11 place-items-center rounded-xl bg-white/[0.06] text-cyan">
+                <Linkedin className="size-5" />
+              </span>
+
+              <span>
+                <span className="block text-xs text-muted-foreground">
+                  LinkedIn
+                </span>
+                <span className="mt-0.5 block text-sm font-semibold text-white">
+                  albara-csharp-developer
+                </span>
+              </span>
+
+              <ArrowUpRight className="ml-auto size-4 text-muted-foreground" />
+            </ExternalLink>
+
+            {/* Email */}
+            <ExternalLink
+              href="mailto:alharissyalbara"
+              className="contact-link"
+            >
+              <span className="grid size-11 place-items-center rounded-xl bg-white/[0.06] text-cyan">
+                <Mail className="size-5" />
+              </span>
+
+              <span>
+                <span className="block text-xs text-muted-foreground">
+                  Email
+                </span>
+                <span className="mt-0.5 block text-sm font-semibold text-white">
+                  alharissyalbara
+                </span>
+              </span>
+
+              <ArrowUpRight className="ml-auto size-4 text-muted-foreground" />
+            </ExternalLink>
+
+            {/* WhatsApp */}
+            <ExternalLink
+              href="https://wa.me/967774559799"
+              className="contact-link"
+            >
+              <span className="grid size-11 place-items-center rounded-xl bg-white/[0.06] text-cyan">
+                <MessageCircle className="size-5" />
+              </span>
+
+              <span>
+                <span className="block text-xs text-muted-foreground">
+                  WhatsApp
+                </span>
+                <span className="mt-0.5 block text-sm font-semibold text-white">
+                  +967 774 559 799
+                </span>
+              </span>
+
+              <ArrowUpRight className="ml-auto size-4 text-muted-foreground" />
+            </ExternalLink>
+
+            {/* Phone */}
+            <ExternalLink
+              href="tel:+967774559799"
+              className="contact-link"
+            >
+              <span className="grid size-11 place-items-center rounded-xl bg-white/[0.06] text-cyan">
+                <Phone className="size-5" />
+              </span>
+
+              <span>
+                <span className="block text-xs text-muted-foreground">
+                  Phone
+                </span>
+                <span className="mt-0.5 block text-sm font-semibold text-white">
+                  +967 774 559 799
+                </span>
+              </span>
+
+              <ArrowUpRight className="ml-auto size-4 text-muted-foreground" />
+            </ExternalLink>
+
+          </div>
+        </div>
+      </Card>
     </section>
   );
 }
