@@ -372,7 +372,7 @@ function Contact() {
 
             {/* Email */}
             <ExternalLink
-              href="mailto:alharissyalbara"
+              href="mailto:alharissyalbara@gmail.com"
               className="contact-link"
             >
               <span className="grid size-11 place-items-center rounded-xl bg-white/[0.06] text-cyan">
