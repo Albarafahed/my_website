@@ -16,6 +16,7 @@ import {
   FilePenLine,
   Gamepad2,
   Github,
+  GraduationCap,
   HeartPulse,
   IdCard,
   Laptop,
@@ -49,6 +50,7 @@ const iconMap: Record<ProjectIcon, LucideIcon> = {
   medical: HeartPulse,
   brain: BrainCircuit,
   server: Server,
+  graduation: GraduationCap,
 };
 
 const toneMap: Record<Project["category"], string> = {
@@ -80,25 +82,17 @@ export function ProjectCard({ project, index, onDetails }: ProjectCardProps) {
       className="group"
     >
       <Card className="project-card flex h-full flex-col overflow-hidden transition duration-300 group-hover:-translate-y-1 group-hover:border-cyan/35 group-hover:shadow-cyan">
-        <div className="relative h-48 overflow-hidden border-b border-white/10">
-  {project.image ? (
-    <img
-      src={project.image}
-      alt={project.title}
-      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-    />
-  ) : (
-    <div
-      className={`flex h-full items-center justify-center bg-gradient-to-br ${toneMap[project.category]}`}
-    >
-      <Icon className="size-16 text-cyan" />
-    </div>
-  )}
-
-  <div className="absolute left-3 top-3 rounded-full bg-[#08132f]/80 px-3 py-1 text-xs font-semibold text-cyan backdrop-blur">
-    {project.category}
-  </div>
-</div>
+        <div className={`relative flex h-48 items-center justify-center overflow-hidden border-b border-white/10 bg-gradient-to-br ${toneMap[project.category]}`}>
+          <div aria-hidden="true" className="absolute inset-0 bg-[#08132f]/35" />
+          <div aria-hidden="true" className="absolute -right-10 -top-16 size-48 rounded-full border border-white/[0.07]" />
+          <div aria-hidden="true" className="absolute -bottom-24 -left-8 size-56 rounded-full border border-white/[0.06]" />
+          <div className="relative grid size-24 place-items-center rounded-3xl border border-cyan/25 bg-[#08132f]/70 text-cyan shadow-[0_0_55px_rgba(34,211,238,0.14)] backdrop-blur-sm transition duration-500 group-hover:scale-110 group-hover:border-cyan/50">
+            <Icon className="size-11" strokeWidth={1.6} />
+          </div>
+          <div className="absolute left-3 top-3 rounded-full border border-white/10 bg-[#08132f]/80 px-3 py-1 text-xs font-semibold text-cyan backdrop-blur">
+            {project.category}
+          </div>
+        </div>
 
         <div className="flex flex-1 flex-col p-5">
           <h3 className="text-xl font-bold tracking-[-0.02em] text-white">{project.title}</h3>
