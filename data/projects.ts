@@ -51,7 +51,7 @@ export const projects: Project[] = [
     category: "Backend",
     description: "A .NET 8 contact management REST API built with ASP.NET Core, Entity Framework Core, SQL Server, and Clean Architecture.",
     technologies: [".NET 8", "ASP.NET Core Web API", "EF Core", "SQL Server", "Clean Architecture"],
-    highlights: ["CRUD operations and application services", "Repository Pattern and Dependency Injection", "DTOs and asynchronous data access", "JWT authentication, role-based authorization, logging, and auditing"],
+    highlights: ["Contact and country management with CRUD operations", "Domain entities that enforce business rules", "Repository Pattern and Dependency Injection", "EF Core change tracking and centralized exception handling"],
     repository: "https://github.com/Albarafahed/ContactsSystemCleanArchitecture",
     icon: "contacts",
     featured: true,
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     highlights: ["Contact CRUD operations", "Country management", "Image path handling", "DataGridView binding"],
     repository: "https://github.com/Albarafahed/Contact-Windows-Form-CSharp",
     icon: "contacts",
-    featured: true,
+    featured: false,
   },
   
   {
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     highlights: ["Client management", "Property management", "Contract management", "Payments and reports"],
     repository: "https://github.com/Albarafahed/RealEstateSolution-Windows-Form-CSharp",
     icon: "building",
-    featured: true,
+    featured: false,
   },
   {
     slug: "pizza-ordering",
