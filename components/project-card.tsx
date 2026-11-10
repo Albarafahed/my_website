@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   ArrowUpRight,
   Binary,
@@ -19,7 +20,6 @@ import {
   GraduationCap,
   HeartPulse,
   IdCard,
-  Laptop,
   MonitorSmartphone,
   Pizza,
   Server,
@@ -82,7 +82,7 @@ export function ProjectCard({ project, index, onDetails }: ProjectCardProps) {
       className="group"
     >
       <Card className="project-card flex h-full flex-col overflow-hidden transition duration-300 group-hover:-translate-y-1 group-hover:border-cyan/35 group-hover:shadow-cyan">
-        <div className={`relative flex h-48 items-center justify-center overflow-hidden border-b border-white/10 bg-gradient-to-br ${toneMap[project.category]}`}>
+        <div className={`relative flex h-44 items-center justify-center overflow-hidden border-b border-white/10 bg-gradient-to-br ${toneMap[project.category]}`}>
           <div aria-hidden="true" className="absolute inset-0 bg-[#08132f]/35" />
           <div aria-hidden="true" className="absolute -right-10 -top-16 size-48 rounded-full border border-white/[0.07]" />
           <div aria-hidden="true" className="absolute -bottom-24 -left-8 size-56 rounded-full border border-white/[0.06]" />
@@ -92,11 +92,27 @@ export function ProjectCard({ project, index, onDetails }: ProjectCardProps) {
           <div className="absolute left-3 top-3 rounded-full border border-white/10 bg-[#08132f]/80 px-3 py-1 text-xs font-semibold text-cyan backdrop-blur">
             {project.category}
           </div>
+          {project.featured ? (
+            <div className="absolute right-3 top-3 rounded-full border border-cyan/25 bg-[#08132f]/85 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-cyan backdrop-blur">
+              Featured
+            </div>
+          ) : null}
         </div>
 
         <div className="flex flex-1 flex-col p-5">
           <h3 className="text-xl font-bold tracking-[-0.02em] text-white">{project.title}</h3>
           <p className="mt-3 line-clamp-3 text-sm leading-6 text-muted-foreground">{project.description}</p>
+
+          {project.featured ? (
+            <ul className="mt-4 grid gap-2">
+              {project.highlights.slice(0, 2).map((item) => (
+                <li key={item} className="flex gap-2 text-xs leading-5 text-slate-300">
+                  <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
 
           <div className="mt-5 flex flex-wrap gap-2">
             {project.technologies.slice(0, 4).map((technology) => (
@@ -117,13 +133,22 @@ export function ProjectCard({ project, index, onDetails }: ProjectCardProps) {
               </Button>
             ) : (
               <span className="flex-1 rounded-lg border border-dashed border-white/10 px-3 py-2 text-center text-[11px] text-muted-foreground">
-                No repository linked in the original site
+                No repository linked
               </span>
             )}
-            <Button variant="ghost" size="sm" onClick={() => onDetails(project)} aria-label={`View ${project.title} details`}>
-              Details
-              <ChevronRight className="size-3.5" />
-            </Button>
+            {project.featured ? (
+              <Button asChild size="sm">
+                <Link href={`/projects/${project.slug}`}>
+                  Case study
+                  <ArrowUpRight className="size-3.5" />
+                </Link>
+              </Button>
+            ) : (
+              <Button variant="ghost" size="sm" onClick={() => onDetails(project)} aria-label={`View ${project.title} details`}>
+                Details
+                <ChevronRight className="size-3.5" />
+              </Button>
+            )}
           </div>
         </div>
       </Card>
