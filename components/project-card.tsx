@@ -3,7 +3,6 @@
 import Link from "next/link";
 import {
   ArrowUpRight,
-  Binary,
   BookOpen,
   BrainCircuit,
   Building2,
