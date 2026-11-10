@@ -1,4 +1,4 @@
-import { Box, Database, ServerCog, Wrench, type LucideIcon } from "lucide-react";
+import { Box, Database, ServerCog, ShieldCheck, Wrench, type LucideIcon } from "lucide-react";
 
 export interface SkillGroup {
   title: string;
@@ -9,27 +9,33 @@ export interface SkillGroup {
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Backend",
-    description: "Building services and clean application logic.",
+    title: "Backend Development",
+    description: "Building APIs and application logic with the .NET ecosystem.",
     icon: ServerCog,
-    skills: ["C#", ".NET", "ASP.NET Core", "Web API", "Entity Framework Core", "LINQ", "REST APIs"],
+    skills: ["C#", ".NET", "ASP.NET Core Web API", "Entity Framework Core", "ADO.NET", "LINQ", "RESTful APIs"],
   },
   {
-    title: "Database",
-    description: "Designing dependable data layers and queries.",
+    title: "Databases",
+    description: "Working with relational data, queries, and database design.",
     icon: Database,
-    skills: ["SQL Server", "T-SQL", "Database Design"],
+    skills: ["Microsoft SQL Server", "T-SQL", "Database Design", "Stored Procedures"],
   },
   {
-    title: "Software Engineering",
-    description: "Keeping systems maintainable as they grow.",
+    title: "Architecture & Engineering",
+    description: "Organizing code into maintainable and clearly separated components.",
     icon: Box,
-    skills: ["OOP", "SOLID", "Clean Architecture", "3-Tier", "N-Tier"],
+    skills: ["OOP", "SOLID", "Clean Architecture", "3-Tier Architecture", "Repository Pattern", "Dependency Injection"],
   },
   {
-    title: "Tools",
-    description: "A practical workflow for shipping and testing.",
+    title: "API Security",
+    description: "Applying authentication and authorization controls in API projects.",
+    icon: ShieldCheck,
+    skills: ["JWT Authentication", "Role-Based Authorization", "Ownership-Based Authorization", "Refresh Tokens", "Rate Limiting", "BCrypt"],
+  },
+  {
+    title: "Testing & Tools",
+    description: "Testing application behavior and using a practical development workflow.",
     icon: Wrench,
-    skills: ["Git", "GitHub", "Visual Studio", "Postman"],
+    skills: ["xUnit", "Moq", "Unit Testing", "Integration Testing", "Swagger UI / OpenAPI", "Git", "GitHub", "Visual Studio"],
   },
 ];

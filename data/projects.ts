@@ -36,6 +36,51 @@ export interface Project {
 // Source of truth for every project and repository extracted from the legacy portfolio.
 export const projects: Project[] = [
   {
+    slug: "student-management-api",
+    title: "Student Management API",
+    category: "Backend",
+    description: "A .NET 8 RESTful API for student management, built with ASP.NET Core Web API, SQL Server, and ADO.NET using a layered architecture.",
+    technologies: [".NET 8", "ASP.NET Core Web API", "C#", "SQL Server", "ADO.NET", "JWT"],
+    highlights: ["JWT authentication with access and refresh tokens", "Role-based and ownership-based authorization", "Login rate limiting and BCrypt password hashing", "Unit and integration tests with xUnit and Moq"],
+    repository: "https://github.com/Albarafahed/StudentsApiThreeTierArchitecture",
+    icon: "server",
+    featured: true,
+  },
+  {
+    slug: "contacts-management-api",
+    title: "Contacts Management API",
+    category: "Backend",
+    description: "A .NET 8 contact management REST API built with ASP.NET Core, Entity Framework Core, SQL Server, and Clean Architecture.",
+    technologies: [".NET 8", "ASP.NET Core Web API", "EF Core", "SQL Server", "Clean Architecture"],
+    highlights: ["CRUD operations and application services", "Repository Pattern and Dependency Injection", "DTOs and asynchronous data access", "JWT authentication, role-based authorization, logging, and auditing"],
+    repository: "https://github.com/Albarafahed/ContactsSystemCleanArchitecture",
+    icon: "server",
+    featured: true,
+  },
+  {
+    slug: "dvld-system",
+    title: "DVLD System",
+     image: "/images/DVLD/DVLDSystem.png",
+  gallery: [
+    "/images/DVLD/frmlogin.png",
+    "/images/DVLD/frmMain.png",
+    "/images/DVLD/frmListPeople.png",
+    "/images/DVLD/frmListDriver.png",
+    "/images/DVLD/frmListLocalDrivingLicense.png",
+    "/images/DVLD/frmDetainLicenses.png",
+    "/images/DVLD/frmReleaseDetainedLicense.png",
+  ],
+    category: ".NET",
+    description: "Drivers, License & Vehicle Department System. A complete Windows Forms management system.",
+    technologies: ["C# WinForms", "SQL Server", "3-Tier", "ADO.NET"],
+    highlights: ["Drivers management", "License management", "Testing workflow", "User management"],
+    repository: "https://github.com/Albarafahed/DVLD-Windows-Form-CSharp",
+    icon: "id",
+    featured: true,
+  },
+
+
+  {
     slug: "clinic-management",
     title: "Clinic Management System",
     image: "/images/Clinic/ClinicSystem.png",
@@ -58,28 +103,6 @@ export const projects: Project[] = [
     highlights: ["Patients management", "Doctors management", "Appointments", "Medical operations"],
     repository: "https://github.com/Albarafahed/Clinic-Windows-Form-CSharp",
     icon: "clinic",
-    featured: true,
-  },
-
-  {
-    slug: "dvld-system",
-    title: "DVLD System",
-     image: "/images/DVLD/DVLDSystem.png",
-  gallery: [
-    "/images/DVLD/frmlogin.png",
-    "/images/DVLD/frmMain.png",
-    "/images/DVLD/frmListPeople.png",
-    "/images/DVLD/frmListDriver.png",
-    "/images/DVLD/frmListLocalDrivingLicense.png",
-    "/images/DVLD/frmDetainLicenses.png",
-    "/images/DVLD/frmReleaseDetainedLicense.png",
-  ],
-    category: ".NET",
-    description: "Drivers, License & Vehicle Department System. A complete Windows Forms management system.",
-    technologies: ["C# WinForms", "SQL Server", "3-Tier", "ADO.NET"],
-    highlights: ["Drivers management", "License management", "Testing workflow", "User management"],
-    repository: "https://github.com/Albarafahed/DVLD-Windows-Form-CSharp",
-    icon: "id",
     featured: true,
   },
 
@@ -277,15 +300,6 @@ export const projects: Project[] = [
     highlights: ["Academic advising", "AI assistant prototype"],
     repository: "https://github.com/Albarafahed/Academic-Advisor-AI-Paython",
     icon: "brain",
-  },
-  {
-    slug: "aspnet-core-apis",
-    title: "ASP.NET Core APIs",
-    category: "Backend",
-    description: "Backend development projects focused on REST APIs, database relationships, and authentication concepts.",
-    technologies: ["ASP.NET Core", "Entity Framework Core", "JWT"],
-    highlights: ["RESTful APIs", "Entity Framework Core", "Authentication", "SQL Server integration"],
-    icon: "server",
   },
 ];
 
