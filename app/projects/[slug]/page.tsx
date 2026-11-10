@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
+  ArrowRight,
   ArrowUpRight,
+  AlertTriangle,
   CheckCircle2,
   Code2,
   ContactRound,
@@ -11,7 +13,10 @@ import {
   HeartPulse,
   IdCard,
   Layers3,
+  Workflow,
   Github,
+  ShieldCheck,
+  TestTube2,
 } from "lucide-react";
 
 import { projects } from "@/data/projects";
@@ -22,34 +27,143 @@ const caseStudies = {
   "student-management-api": {
     eyebrow: "Backend API",
     architecture: "Layered architecture",
-    architectureDescription:
-      "The API separates application responsibilities into layers and uses ADO.NET to communicate with SQL Server.",
+    summary:
+      "A REST API for student records, built to practice backend responsibilities alongside authentication, access control, database access, and automated testing.",
     icon: GraduationCap,
-    focus: "API development, authentication, authorization, and automated tests",
+    problem:
+      "Student information needs a consistent interface for managing records while restricting access to protected operations.",
+    workflow: ["HTTP request", "Students controller", "Business / service logic", "ADO.NET data access", "SQL Server"],
+    decisions: [
+      ["ADO.NET and stored procedures", "Database operations are handled explicitly through ADO.NET rather than an ORM."],
+      ["JWT access and refresh tokens", "The implementation includes token-based authentication and refresh-token handling."],
+      ["Authorization rules", "Admin/Student roles and ownership checks are used to restrict access to student resources."],
+      ["Automated tests", "xUnit and Moq are used for unit and integration testing."],
+    ],
+    capabilities: [
+      "Student management endpoints",
+      "JWT authentication with access and refresh tokens",
+      "Role-based and ownership-based authorization",
+      "Login rate limiting and BCrypt password hashing",
+      "Asynchronous database operations and stored-procedure calls",
+      "Unit and integration tests using xUnit and Moq",
+    ],
+    evidence: [
+      ["Test tooling", "The repository documents xUnit and Moq test projects."],
+      ["Security implementation", "The API source includes JWT handling, BCrypt hashing, and a login rate limiter."],
+    ],
+    limitations: [
+      "The checked-in StudentsDB.sql script does not currently match the fields expected by the API code: the script's Students table contains only Id, Name, Age, and Grade, while the code expects additional authentication-related fields.",
+      "The API calls SP_Login and SP_UpdateRefreshToken, but these procedures are not present in the checked-in SQL script.",
+      "The database script and application must be brought into alignment before the repository can be described as a reproducible, ready-to-run setup.",
+    ],
+    next: ["Align the SQL schema and stored procedures with the current data-access code.", "Add an end-to-end setup verification using a clean database.", "Expand automated tests around authentication, authorization, and failure cases."],
+    stackNote: "ASP.NET Core Web API · .NET 8 · C# · SQL Server · ADO.NET · JWT · xUnit · Moq",
   },
   "contacts-management-api": {
     eyebrow: "Backend API",
     architecture: "Clean Architecture",
-    architectureDescription:
-      "The solution is organized around Domain, Application, Infrastructure, and API responsibilities.",
+    summary:
+      "A .NET 8 contact-management API structured into Domain, Application, Infrastructure, and API projects, with EF Core and SQL Server handling persistence.",
     icon: ContactRound,
-    focus: "Maintainable application structure, data access, and API security",
+    problem:
+      "Contact-management features can become difficult to maintain when HTTP concerns, business rules, and database code are tightly coupled. This solution separates those responsibilities into distinct projects.",
+    workflow: ["HTTP request", "API controller", "Application service", "Repository interface", "EF Core implementation", "SQL Server"],
+    decisions: [
+      ["Dependency direction", "Application code works with repository abstractions, while Infrastructure provides their EF Core implementations."],
+      ["Domain entities", "Entity methods encapsulate selected business rules instead of exposing unrestricted property updates."],
+      ["DTOs", "Request and response models help keep API contracts separate from persistence entities."],
+      ["Centralized exception middleware", "Unhandled exceptions are translated in one place rather than repeating the same handling in each controller."],
+    ],
+    capabilities: [
+      "Contact and country data management",
+      "CRUD operations through application services",
+      "Repository abstractions and dependency injection",
+      "EF Core DbContext, entity mapping, LINQ, and change tracking",
+      "Asynchronous database access",
+      "Centralized API exception handling",
+    ],
+    evidence: [
+      ["Documented data model", "The README identifies Contacts and Countries as the main database entities."],
+      ["Documented architecture", "The repository describes separate API, Application, Domain, and Infrastructure projects."],
+    ],
+    limitations: [
+      "The README lists authentication, authorization, pagination, filtering, and automated tests as future improvements; they are not presented here as completed capabilities.",
+      "The repository setup requires a SQL Server schema that matches the EF Core model configuration.",
+    ],
+    next: ["Add focused application-service and repository tests.", "Introduce request validation and pagination where useful.", "Add API authentication and authorization if required by the intended use case."],
+    stackNote: ".NET 8 · ASP.NET Core Web API · C# · EF Core · SQL Server · Clean Architecture",
   },
   "dvld-system": {
     eyebrow: "Desktop management system",
     architecture: "3-Tier architecture",
-    architectureDescription:
-      "The desktop application separates the presentation, business logic, and data access responsibilities.",
+    summary:
+      "A Windows Forms system for managing people, drivers, driving-license applications, tests, and license services using C#, ADO.NET, and SQL Server.",
     icon: IdCard,
-    focus: "Driver, vehicle, application, and licensing workflows",
+    problem:
+      "Driving-license administration involves connected records and a sequence of application, test, and licensing steps. The system brings these related operations into one desktop application.",
+    workflow: ["Register person", "Create license application", "Schedule required tests", "Record test results", "Issue driving license", "Renew / replace / detain / release / international license"],
+    decisions: [
+      ["Presentation / Business / Data Access separation", "Forms handle user interaction, business classes handle application rules, and data-access classes communicate with SQL Server."],
+      ["ADO.NET", "The data-access layer executes SQL operations and retrieves stored records."],
+      ["Business objects", "Classes represent key concepts such as people, drivers, applications, licenses, and tests."],
+      ["SQL Server relational model", "The database contains linked records for people, applications, license classes, licenses, and tests."],
+    ],
+    capabilities: [
+      "People, users, and drivers management",
+      "Local driving-license applications",
+      "Test appointment and test-processing workflow",
+      "Issuing driving licenses after required tests",
+      "Renewing and replacing lost or damaged licenses",
+      "Detaining and releasing licenses",
+      "International driving-license services",
+    ],
+    evidence: [
+      ["Database setup", "The repository includes a DVLD.sql database creation script."],
+      ["Workflow documentation", "The README describes the license application through test and issuance stages, plus additional license services."],
+    ],
+    limitations: [
+      "The repository README states that automated tests and a logging framework are not included.",
+      "The documented implementation stores database connection information in source code and identifies password hashing as an improvement.",
+      "The README does not list a Repository Pattern or Dependency Injection implementation; these are not claimed as project features.",
+    ],
+    next: ["Move environment-specific connection settings out of source code.", "Introduce automated tests around business rules and licensing workflows.", "Improve credential handling and add structured logging."],
+    stackNote: "C# · Windows Forms · .NET Framework 4.7.2 · ADO.NET · SQL Server · 3-Tier architecture",
   },
   "clinic-management": {
     eyebrow: "Desktop management system",
-    architecture: "Windows Forms application",
-    architectureDescription:
-      "A C# desktop application backed by SQL Server for organizing clinic management tasks.",
+    architecture: "3-Tier architecture",
+    summary:
+      "A clinic operations desktop application covering patient registration, appointments, reception, nursing, doctor visits, pharmacy, billing, and payments.",
     icon: HeartPulse,
-    focus: "Patient, doctor, and appointment management",
+    problem:
+      "A clinic visit touches several operational stations. The application organizes the patient journey and the records created by reception, nursing, doctors, pharmacy, and cashier staff.",
+    workflow: ["Patient registration", "Reception and appointment", "Cashier check-in", "Nurse records vital signs", "Doctor records diagnosis and prescription", "Pharmacy dispenses medicine", "Cashier completes billing"],
+    decisions: [
+      ["Layered desktop structure", "The documented stack separates Windows Forms presentation, business logic, and SQL Server data access."],
+      ["Relational database", "The database covers patients, doctors, appointments, visits, diagnoses, prescriptions, medicines, bills, and payments."],
+      ["Transactions", "The README describes SQL transactions for maintaining consistency across complex operations."],
+      ["Role-oriented workstations", "Separate reception, nurse, doctor, pharmacy, and cashier stations reflect the operational roles in the clinic workflow."],
+    ],
+    capabilities: [
+      "Patient, doctor, and user management",
+      "Appointment and queue management",
+      "Reception and nurse stations",
+      "Doctor visits, diagnoses, and prescriptions",
+      "Pharmacy and medicine management",
+      "Bills, payments, invoices, and medicine returns",
+      "SQL Server database with relational constraints and transactional operations",
+    ],
+    evidence: [
+      ["Interface documentation", "The project README includes screenshots for reception, nurse, doctor, pharmacy, and cashier screens."],
+      ["Database setup", "The README documents a ClinicDB.sql script for creating the database and initial data."],
+    ],
+    limitations: [
+      "The repository describes a Windows Forms desktop application; a web API or mobile client is not part of the documented current scope.",
+      "The README lists multi-branch support, inventory, laboratory, radiology, and cloud synchronization as future improvements.",
+      "The README's password-security description should be reviewed carefully: SHA-256 alone is not a password-storage scheme designed to resist offline guessing attacks. A modern password-hashing function with per-password salts and an appropriate work factor is preferable.",
+    ],
+    next: ["Review password storage and local credential handling using a modern password-hashing approach.", "Add automated tests for billing, appointments, and visit workflows.", "Consider inventory and multi-branch capabilities only if the project scope requires them."],
+    stackNote: "C# · Windows Forms · .NET Framework 4.7.2 · ADO.NET · SQL Server · 3-Tier architecture",
   },
 } as const;
 
@@ -70,20 +184,27 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
-
   return {
-    title: project
-      ? `${project.title} | Albara's Portfolio`
-      : "Project Not Found | Albara's Portfolio",
+    title: project ? `${project.title} | Albara's Portfolio` : "Project Not Found | Albara's Portfolio",
     description: project?.description,
   };
 }
 
-export default async function ProjectCaseStudy({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+function SectionHeading({ icon: Icon, eyebrow, title }: { icon: typeof Layers3; eyebrow: string; title: string }) {
+  return (
+    <div className="mb-6 flex items-start gap-3">
+      <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-cyan/10 text-cyan">
+        <Icon className="size-5" />
+      </span>
+      <div>
+        <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-cyan">{eyebrow}</p>
+        <h2 className="mt-1 text-xl font-bold text-white sm:text-2xl">{title}</h2>
+      </div>
+    </div>
+  );
+}
+
+export default async function ProjectCaseStudy({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   if (!isCaseStudySlug(slug)) notFound();
 
@@ -94,117 +215,110 @@ export default async function ProjectCaseStudy({
   const Icon = study.icon;
 
   return (
-    <main className="mx-auto min-h-screen max-w-5xl px-6 py-12 sm:px-8 sm:py-16">
-      <Link
-        href="/#projects"
-        className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition hover:text-cyan"
-      >
-        <ArrowLeft className="size-4" />
-        Back to all projects
+    <main className="mx-auto min-h-screen max-w-5xl px-5 py-10 sm:px-8 sm:py-16">
+      <Link href="/#projects" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition hover:text-cyan">
+        <ArrowLeft className="size-4" /> Back to all projects
       </Link>
 
-      <header className="relative mt-10 overflow-hidden rounded-3xl border border-white/10 bg-[#0b193b] p-7 sm:p-10">
-        <div className="absolute -right-16 -top-20 size-64 rounded-full border border-cyan/10" />
-        <div className="absolute -bottom-24 -left-12 size-64 rounded-full bg-cyan/5 blur-3xl" />
+      <header className="relative mt-9 overflow-hidden rounded-3xl border border-white/10 bg-[#0b193b] p-7 sm:p-10">
+        <div aria-hidden="true" className="absolute -right-16 -top-20 size-64 rounded-full border border-cyan/10" />
+        <div aria-hidden="true" className="absolute -bottom-24 -left-12 size-64 rounded-full bg-cyan/5 blur-3xl" />
         <div className="relative">
           <div className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-cyan">
-            <span>{study.eyebrow}</span>
-            <span className="text-white/25">/</span>
-            <span>{project.category}</span>
+            <span>{study.eyebrow}</span><span className="text-white/25">/</span><span>{project.category}</span>
           </div>
           <div className="mt-7 flex flex-col gap-6 sm:flex-row sm:items-center">
             <div className="grid size-20 shrink-0 place-items-center rounded-2xl border border-cyan/25 bg-cyan/10 text-cyan">
               <Icon className="size-10" strokeWidth={1.5} />
             </div>
             <div>
-              <h1 className="text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl">
-                {project.title}
-              </h1>
-              <p className="mt-3 max-w-2xl leading-7 text-muted-foreground">
-                {project.description}
-              </p>
+              <h1 className="text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl">{project.title}</h1>
+              <p className="mt-3 max-w-2xl leading-7 text-slate-300">{study.summary}</p>
             </div>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            {project.repository ? (
-              <Button asChild>
-                <a href={project.repository} target="_blank" rel="noreferrer">
-                  <Github className="size-4" />
-                  View source code
-                  <ArrowUpRight className="size-4" />
-                </a>
-              </Button>
-            ) : null}
-            <Button asChild variant="outline">
-              <Link href="/#contact">Get in touch</Link>
-            </Button>
+            {project.repository && <Button asChild><a href={project.repository} target="_blank" rel="noreferrer"><Github className="size-4" /> View source code <ArrowUpRight className="size-4" /></a></Button>}
+            <Button asChild variant="outline"><Link href="/#contact">Get in touch</Link></Button>
           </div>
         </div>
       </header>
 
-      <div className="mt-8 grid gap-5 md:grid-cols-[1.1fr_.9fr]">
+      <section className="mt-8 grid gap-5 md:grid-cols-[1.1fr_.9fr]">
         <Card className="p-6 sm:p-7">
-          <div className="flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded-xl bg-cyan/10 text-cyan">
-              <Layers3 className="size-5" />
-            </span>
-            <h2 className="text-lg font-bold text-white">Architecture & approach</h2>
-          </div>
-          <h3 className="mt-6 text-base font-semibold text-cyan">{study.architecture}</h3>
-          <p className="mt-2 text-sm leading-7 text-muted-foreground">
-            {study.architectureDescription}
-          </p>
-          <p className="mt-5 text-xs font-bold uppercase tracking-[0.13em] text-slate-400">
-            Main engineering focus
-          </p>
-          <p className="mt-2 text-sm leading-6 text-slate-300">{study.focus}</p>
+          <SectionHeading icon={Workflow} eyebrow="Project context" title="Problem being addressed" />
+          <p className="text-sm leading-7 text-slate-300">{study.problem}</p>
         </Card>
-
         <Card className="p-6 sm:p-7">
-          <div className="flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded-xl bg-cyan/10 text-cyan">
-              <Code2 className="size-5" />
-            </span>
-            <h2 className="text-lg font-bold text-white">Technology stack</h2>
+          <SectionHeading icon={Code2} eyebrow="Technology" title="Technology stack" />
+          <p className="text-sm leading-7 text-slate-300">{study.stackNote}</p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {project.technologies.map((technology) => <span key={technology} className="rounded-lg border border-white/10 bg-white/[0.035] px-3 py-2 text-xs font-medium text-slate-300">{technology}</span>)}
           </div>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {project.technologies.map((technology) => (
-              <span
-                key={technology}
-                className="rounded-lg border border-white/10 bg-white/[0.035] px-3 py-2 text-xs font-medium text-slate-300"
-              >
-                {technology}
-              </span>
+        </Card>
+      </section>
+
+      <section className="mt-5">
+        <Card className="p-6 sm:p-8">
+          <SectionHeading icon={Layers3} eyebrow="System design" title="Architecture & request flow" />
+          <p className="mb-5 text-sm leading-7 text-slate-300">{study.architecture}. The flow below summarizes the documented responsibility boundaries.</p>
+          <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-2">
+            {study.workflow.map((step, index) => (
+              <div key={step} className="flex min-w-0 flex-1 flex-col items-center gap-2 sm:flex-row">
+                <div className="flex min-h-16 w-full flex-1 items-center justify-center rounded-xl border border-cyan/20 bg-cyan/[0.06] px-3 py-3 text-center text-xs font-semibold leading-5 text-slate-200">{step}</div>
+                {index < study.workflow.length - 1 && <ArrowRight className="hidden size-4 shrink-0 text-cyan sm:block" />}
+                {index < study.workflow.length - 1 && <ArrowRight className="size-4 rotate-90 text-cyan sm:hidden" />}
+              </div>
             ))}
           </div>
         </Card>
-      </div>
+      </section>
 
-      <Card className="mt-5 p-6 sm:p-7">
-        <div className="flex items-center gap-3">
-          <span className="grid size-10 place-items-center rounded-xl bg-cyan/10 text-cyan">
-            <CheckCircle2 className="size-5" />
-          </span>
-          <h2 className="text-lg font-bold text-white">Implemented features</h2>
-        </div>
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-          {project.highlights.map((highlight) => (
-            <li key={highlight} className="flex gap-3 text-sm leading-6 text-slate-300">
-              <CheckCircle2 className="mt-1 size-4 shrink-0 text-cyan" />
-              <span>{highlight}</span>
-            </li>
-          ))}
-        </ul>
-      </Card>
+      <section className="mt-5">
+        <Card className="p-6 sm:p-8">
+          <SectionHeading icon={ShieldCheck} eyebrow="Engineering decisions" title="Key technical decisions" />
+          <div className="grid gap-4 md:grid-cols-2">
+            {study.decisions.map(([title, description]) => (
+              <div key={title} className="rounded-xl border border-white/10 bg-white/[0.025] p-4">
+                <h3 className="font-semibold text-white">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{description}</p>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </section>
+
+      <section className="mt-5">
+        <Card className="p-6 sm:p-8">
+          <SectionHeading icon={CheckCircle2} eyebrow="Current implementation" title="Implemented capabilities" />
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {study.capabilities.map((item) => <li key={item} className="flex gap-3 text-sm leading-6 text-slate-300"><CheckCircle2 className="mt-1 size-4 shrink-0 text-cyan" /><span>{item}</span></li>)}
+          </ul>
+        </Card>
+      </section>
+
+      <section className="mt-5">
+        <Card className="p-6 sm:p-8">
+          <SectionHeading icon={TestTube2} eyebrow="Verification" title="Testing & project evidence" />
+          <div className="grid gap-3 sm:grid-cols-2">
+            {study.evidence.map(([title, description]) => <div key={title} className="rounded-xl border border-white/10 p-4"><h3 className="font-semibold text-white">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-300">{description}</p></div>)}
+          </div>
+        </Card>
+      </section>
+
+      <section className="mt-5 grid gap-5 md:grid-cols-2">
+        <Card className="p-6 sm:p-7">
+          <SectionHeading icon={AlertTriangle} eyebrow="Transparency" title="Known limitations" />
+          <ul className="space-y-3">{study.limitations.map((item) => <li key={item} className="flex gap-3 text-sm leading-6 text-slate-300"><AlertTriangle className="mt-1 size-4 shrink-0 text-amber-300" /><span>{item}</span></li>)}</ul>
+        </Card>
+        <Card className="p-6 sm:p-7">
+          <SectionHeading icon={ArrowUpRight} eyebrow="Next iteration" title="Potential improvements" />
+          <ul className="space-y-3">{study.next.map((item) => <li key={item} className="flex gap-3 text-sm leading-6 text-slate-300"><ArrowUpRight className="mt-1 size-4 shrink-0 text-cyan" /><span>{item}</span></li>)}</ul>
+        </Card>
+      </section>
 
       <footer className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
-        <p className="text-sm text-muted-foreground">
-          Part of my .NET and software development portfolio.
-        </p>
-        <Link href="/#projects" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan hover:text-white">
-          Explore more projects
-          <ArrowUpRight className="size-4" />
-        </Link>
+        <p className="text-sm text-muted-foreground">A practical project in my software development portfolio.</p>
+        <Link href="/#projects" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan hover:text-white">Explore more projects <ArrowUpRight className="size-4" /></Link>
       </footer>
     </main>
   );
