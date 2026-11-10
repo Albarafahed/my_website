@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   Code2,
   ContactRound,
-  Database,
   GraduationCap,
   HeartPulse,
   IdCard,
