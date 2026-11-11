@@ -53,7 +53,7 @@ const iconMap: Record<ProjectIcon, LucideIcon> = {
 };
 
 const toneMap: Record<Project["category"], string> = {
-  ".NET": "from-sky-400/20 via-cyan-400/10 to-transparent",
+  WinForms: "from-sky-400/20 via-cyan-400/10 to-transparent",
   Backend: "from-cyan-400/25 via-blue-500/10 to-transparent",
   "C++": "from-violet-500/25 via-blue-500/10 to-transparent",
   "SQL Server": "from-cyan-400/20 via-teal-400/10 to-transparent",
