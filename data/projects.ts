@@ -1,4 +1,4 @@
-export type ProjectCategory = ".NET" | "C++" | "SQL Server" | "Flutter" | "PHP & MySQL" | "Python" | "Backend";
+export type ProjectCategory = "WinForms" | "C++" | "SQL Server" | "Flutter" | "PHP & MySQL" | "Python" | "Backend";
 
 export type ProjectIcon =
   | "id"
@@ -49,9 +49,9 @@ export const projects: Project[] = [
     slug: "contacts-management-api",
     title: "Contacts Management API",
     category: "Backend",
-    description: "A .NET 8 contact management REST API built with ASP.NET Core, Entity Framework Core, SQL Server, and Clean Architecture.",
-    technologies: [".NET 8", "ASP.NET Core Web API", "EF Core", "SQL Server", "Clean Architecture"],
-    highlights: ["Contact and country management with CRUD operations", "Domain entities that enforce business rules", "Repository Pattern and Dependency Injection", "EF Core change tracking and centralized exception handling"],
+    description: "A secure .NET 8 contact-management REST API built with ASP.NET Core, EF Core, SQL Server, and Clean Architecture, with user-owned contacts and audited operations.",
+    technologies: [".NET 8", "ASP.NET Core Web API", "EF Core", "SQL Server", "Clean Architecture", "JWT", "RBAC"],
+    highlights: ["JWT authentication with refresh-token rotation and revocation", "Role-based and ownership-based authorization for contact data", "Contact and country management using application services and repositories", "Rate limiting, centralized exception handling, and secure password hashing", "Audit logs with admin-only access, filtering, and pagination", "Unit of Work, Dependency Injection, DTOs, and asynchronous EF Core operations"],
     repository: "https://github.com/Albarafahed/ContactsSystemCleanArchitecture",
     icon: "contacts",
     featured: true,
@@ -59,7 +59,7 @@ export const projects: Project[] = [
   {
     slug: "dvld-system",
     title: "DVLD System",
-    category: ".NET",
+    category: "WinForms",
     description: "Drivers, License & Vehicle Department System. A complete Windows Forms management system.",
     technologies: ["C# WinForms", "SQL Server", "3-Tier", "ADO.NET"],
     highlights: ["Drivers management", "License management", "Testing workflow", "User management"],
@@ -72,7 +72,7 @@ export const projects: Project[] = [
   {
     slug: "clinic-management",
     title: "Clinic Management System",
-    category: ".NET",
+    category: "WinForms",
     description: "A healthcare management desktop application built using C# and SQL Server.",
     technologies: ["C# WinForms", "SQL Server", ".NET Framework 4.7.2", "Architecture"],
     highlights: ["Patients management", "Doctors management", "Appointments", "Medical operations"],
@@ -84,7 +84,7 @@ export const projects: Project[] = [
   {
     slug: "contacts-management",
     title: "Contacts Management",
-    category: ".NET",
+    category: "WinForms",
     description: "Contact management system using layered architecture and SQL Server database.",
     technologies: ["C# WinForms", "SQL Server", "EF", "Layered Architecture"],
     highlights: ["Contact CRUD operations", "Country management", "Image path handling", "DataGridView binding"],
@@ -96,7 +96,7 @@ export const projects: Project[] = [
   {
     slug: "real-estate-solution",
     title: "Real Estate Management System",
-    category: ".NET",
+    category: "WinForms",
     description:
       "A desktop real estate management system built using C# WinForms, SQL Server, ADO.NET, and N-Tier Architecture. Manage clients, properties, contracts, payments, and reports through an organized desktop application.",
     technologies: ["C#", ".NET 9", "SQL Server", "ADO.NET", "N-Tier"],
@@ -108,7 +108,7 @@ export const projects: Project[] = [
   {
     slug: "pizza-ordering",
     title: "Pizza Ordering System",
-    category: ".NET",
+    category: "WinForms",
     description: "Windows Forms ordering application built using C#.",
     technologies: ["C# WinForms", "UI Design", "Order Management","Json Storage"],
     highlights: ["C# WinForms", "User interface design", "Order management"],
@@ -118,7 +118,7 @@ export const projects: Project[] = [
   {
     slug: "calculator",
     title: "Calculator",
-    category: ".NET",
+    category: "WinForms",
     description: "A simple calculator desktop application.",
     technologies: ["C#", "Windows Forms", "Event Handling"],
     highlights: ["C#", "Windows Forms", "Event handling"],
@@ -128,7 +128,7 @@ export const projects: Project[] = [
   {
     slug: "note-book",
     title: "Note Book",
-    category: ".NET",
+    category: "WinForms",
     description: "Text editing desktop application.",
     technologies: ["C#", "Windows Forms", "File Handling"],
     highlights: ["File handling", "Windows Forms", "C# events"],
@@ -139,7 +139,7 @@ export const projects: Project[] = [
   {
     slug: "xo-game",
     title: "XO Game",
-    category: ".NET",
+    category: "WinForms",
     description: "Classic Tic Tac Toe game using Windows Forms.",
     technologies: ["C#", "Windows Forms", "Game Logic"],
     highlights: ["Game logic", "C# programming", "UI interaction"],
@@ -241,8 +241,8 @@ export const projects: Project[] = [
 
 export const projectCategories: (ProjectCategory | "All")[] = [
   "All",
-  ".NET",
   "Backend",
+  "WinForms",
   "C++",
   "SQL Server",
   "Flutter",
