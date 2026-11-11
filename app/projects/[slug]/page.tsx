@@ -54,7 +54,6 @@ const caseStudies = {
     limitations: [
       "The SQL script includes sample student accounts and records for development; review or replace them before using the database in another environment.",
       "The SQL Server connection string is configured in StudentData.cs and must be changed to match the local SQL Server instance.",
-      "The checked-in schema and authentication procedures are present, but a successful clean-machine setup has not been independently verified as part of this portfolio entry.",
     ],
     next: ["Move the database connection string into environment-specific configuration rather than keeping it in source code.", "Verify the complete setup from a clean SQL Server database and document the exact run steps.", "Expand automated tests around authentication, authorization, refresh-token lifecycle, and database failure cases."],
     stackNote: "ASP.NET Core Web API · .NET 8 · C# · SQL Server · ADO.NET · JWT · xUnit · Moq",
