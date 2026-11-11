@@ -3,9 +3,9 @@ export const profile = {
   shortName: "Albara Fahed",
   initials: "AF",
   role: "Junior .NET Backend Developer",
-  headline: "Building backend applications and RESTful APIs with C#, ASP.NET Core, EF Core, and SQL Server.",
+  headline: "I build secure, maintainable .NET backend systems — from REST APIs and authentication to data access, authorization, and SQL Server design.",
   summary:
-    "I’m an Information Technology student focused on .NET backend development. I build RESTful APIs and database-driven applications using C#, ASP.NET Core, SQL Server, ADO.NET, and Entity Framework Core. My projects include a Contacts Management API built with Clean Architecture, authentication, authorization, and audit logging, a Student Management API built with ASP.NET Core and ADO.NET, and desktop management systems. I focus on clear separation of concerns, maintainable code, and practical software engineering principles.",
+    "I’m an Information Technology student focused on C#/.NET backend development, with hands-on experience building RESTful APIs and database-driven applications. My main project is a .NET 8 Contacts Management API built with Clean Architecture, ASP.NET Core, EF Core, and SQL Server. It brings together JWT authentication, refresh-token rotation and revocation, role-based and ownership-based authorization, rate limiting, and audit logging. I have also built an ASP.NET Core Student Management API using a layered architecture and ADO.NET, alongside C# Windows Forms systems backed by SQL Server. I care about secure access to data, clear architectural boundaries, reliable database operations, and code that remains understandable as an application grows. I’m seeking a remote junior .NET opportunity where I can contribute, learn from experienced engineers, and keep improving through real software work.",
   github: "https://github.com/Albarafahed",
   linkedin: "https://www.linkedin.com/in/albara-csharp-developer/",
   // avatar: "https://github.com/Albarafahed.png?size=512",
