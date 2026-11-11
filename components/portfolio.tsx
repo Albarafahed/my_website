@@ -177,7 +177,7 @@ function Hero() {
 }
 
 function About() {
-  const highlights = ["IT student", "C#/.NET backend focus", "Open to remote junior roles"];
+  const highlights = ["C# / .NET backend developer", "Clean Architecture & API security", "SQL Server & data-access design"];
   return (
     <section id="about" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24 sm:px-8">
       <div className="grid items-center gap-12 lg:grid-cols-[.88fr_1.12fr]">
@@ -211,7 +211,7 @@ function About() {
 function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24 sm:px-8">
-      <SectionHeading eyebrow="Capabilities" title="A backend-first toolkit." description="Technologies and engineering practices shaped by hands-on systems work and an ongoing focus on modern .NET development." align="center" />
+      <SectionHeading eyebrow="Capabilities" title="A backend-first toolkit." description="Practical backend capabilities demonstrated across API and desktop projects — from architecture and database design to authentication, authorization, and testing." align="center" />
       <div className="mt-14 grid gap-5 sm:grid-cols-2">
         {skillGroups.map((group, index) => {
           const Icon = group.icon;
@@ -258,7 +258,7 @@ function Projects() {
 
   return (
     <section id="projects" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24 sm:px-8">
-      <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end"><SectionHeading eyebrow="Selected work" title="Projects built through practice." description="Explore my .NET backend and desktop projects, their architecture, implemented features, and the technologies behind them." /><div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.025] px-3 py-2 text-sm text-muted-foreground"><BriefcaseBusiness className="size-4 text-cyan" /><span>{projects.filter((project) => project.repository).length} linked repositories</span></div></div>
+      <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end"><SectionHeading eyebrow="Selected work" title="Projects built through practice." description="Start with my Contacts Management API, then explore the backend and desktop systems where I apply .NET, SQL Server, layered architecture, and API security." /><div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.025] px-3 py-2 text-sm text-muted-foreground"><BriefcaseBusiness className="size-4 text-cyan" /><span>{projects.filter((project) => project.repository).length} linked repositories</span></div></div>
       <div className="no-scrollbar mt-10 flex gap-2 overflow-x-auto pb-2">{projectCategories.map((item) => <button key={item} onClick={() => setCategory(item)} className={`whitespace-nowrap rounded-full border px-3.5 py-2 text-xs font-semibold transition ${category === item ? "border-cyan bg-cyan text-navy" : "border-white/10 bg-white/[0.03] text-muted-foreground hover:border-cyan/40 hover:text-white"}`}>{item}</button>)}</div>
       <motion.div layout className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">{filteredProjects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} onDetails={setSelectedProject} />)}</motion.div>
       <ProjectDialog project={selectedProject} onClose={() => setSelectedProject(null)} />
