@@ -35,17 +35,6 @@ export interface Project {
 // Source of truth for every project and repository extracted from the legacy portfolio.
 export const projects: Project[] = [
   {
-    slug: "student-management-api",
-    title: "Student Management API",
-    category: "Backend",
-    description: "A .NET 8 RESTful API for student management, built with ASP.NET Core Web API, SQL Server, and ADO.NET using a layered architecture.",
-    technologies: [".NET 8", "ASP.NET Core Web API", "C#", "SQL Server", "ADO.NET", "JWT"],
-    highlights: ["JWT authentication with access and refresh tokens", "Role-based and ownership-based authorization", "Login rate limiting and BCrypt password hashing", "Unit and integration tests with xUnit and Moq"],
-    repository: "https://github.com/Albarafahed/StudentsApiThreeTierArchitecture",
-    icon: "graduation",
-    featured: true,
-  },
-  {
     slug: "contacts-management-api",
     title: "Contacts Management API",
     category: "Backend",
@@ -54,6 +43,17 @@ export const projects: Project[] = [
     highlights: ["JWT authentication with refresh-token rotation and revocation", "Role-based and ownership-based authorization for contact data", "Contact and country management using application services and repositories", "Rate limiting, centralized exception handling, and secure password hashing", "Audit logs with admin-only access, filtering, and pagination", "Unit of Work, Dependency Injection, DTOs, and asynchronous EF Core operations"],
     repository: "https://github.com/Albarafahed/ContactsSystemCleanArchitecture",
     icon: "contacts",
+    featured: true,
+  },
+  {
+    slug: "student-management-api",
+    title: "Student Management API",
+    category: "Backend",
+    description: "A .NET 8 RESTful API for student management, built with ASP.NET Core Web API, SQL Server, and ADO.NET using a layered architecture.",
+    technologies: [".NET 8", "ASP.NET Core Web API", "C#", "SQL Server", "ADO.NET", "JWT"],
+    highlights: ["JWT authentication with access and refresh tokens", "Role-based and ownership-based authorization", "Login rate limiting and BCrypt password hashing", "Unit and integration tests with xUnit and Moq"],
+    repository: "https://github.com/Albarafahed/StudentsApiThreeTierArchitecture",
+    icon: "graduation",
     featured: true,
   },
   {
